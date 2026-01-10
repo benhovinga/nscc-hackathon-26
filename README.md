@@ -1,1 +1,1 @@
-# nscc-hackathon-26
+# NSCC Hackathon '26: Team Syntax Error Geeks
