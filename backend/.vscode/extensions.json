@@ -1,5 +1,7 @@
 {
     "recommendations": [
+        "streetsidesoftware.code-spell-checker-canadian-english",
+        "streetsidesoftware.code-spell-checker",
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.debugpy",
