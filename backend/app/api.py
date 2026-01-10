@@ -22,3 +22,22 @@ app.add_middleware(
 @app.get("/", tags=["root"])
 async def read_root() -> dict:
     return {"message": "Welcome to the API."}
+
+@app.get("/room", tags=["room"])
+async def list_rooms() -> list:
+    return [
+        {
+            "_id": 1,
+            "number": 225,
+            "wing": "D",
+            "floor": "2",
+            "type": "classroom:lab"
+        },
+        {
+            "_id": 2,
+            "number": 227,
+            "wing": "D",
+            "floor": "2",
+            "type": "classroom:lab"
+        }
+    ]
