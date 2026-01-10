@@ -10,5 +10,20 @@
 			"path": "frontend"
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"ecmel.vscode-html-css",
+			"hediet.vscode-drawio",
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"ms-python.debugpy",
+			"ms-python.vscode-python-envs",
+			"ms-vscode.live-server",
+			"qwtel.sqlite-viewer",
+			"streetsidesoftware.code-spell-checker-canadian-english",
+			"streetsidesoftware.code-spell-checker",
+			"vscode-icons-team.vscode-icons",
+		]
+	}
 }
