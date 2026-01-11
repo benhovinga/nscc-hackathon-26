@@ -39,17 +39,17 @@ app.add_middleware(
 )
 
 
-@app.get("/", tags=["root"])
+@app.get("/")
 async def read_root() -> dict:
     return {"message": "Welcome to the API."}
 
 
-@app.get("/room", tags=["room"], response_model=list[Room])
+@app.get("/room", response_model=list[Room])
 async def list_rooms() -> list[Room]:
     return fake_rooms_db
 
 
-@app.get("/room/{room_id}", tags=["room"], response_model=Room)
+@app.get("/room/{room_id}", response_model=Room)
 async def get_room(room_id: int) -> Room:
     for room in fake_rooms_db:
         if room.id == room_id:
