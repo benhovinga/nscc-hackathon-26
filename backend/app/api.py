@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 
 from .models import Room
-    
+
 
 fake_rooms_db: list[Room] = [
     Room(
@@ -10,32 +10,27 @@ fake_rooms_db: list[Room] = [
         room_number="D225",
         building_wing="D",
         building_floor=2,
-        room_type=Room.Type.classroom_lab
+        room_type=Room.Type.classroom_lab,
     ),
     Room(
         id=2,
         room_number="D227",
         building_wing="D",
         building_floor=2,
-        room_type=Room.Type.classroom_lab
+        room_type=Room.Type.classroom_lab,
     ),
 ]
 
-
 app = FastAPI()
 
-origins = [
-    "http://localhost:5173",
-    "localhost:5173"
-]
-
+origins = ["http://localhost:5173", "localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 
