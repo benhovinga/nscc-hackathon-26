@@ -1,15 +1,19 @@
+# Python built-in library imports
 from enum import Enum
-from pydantic import BaseModel
+
+# Third-party library imports (pip)
+from sqlmodel import Field, SQLModel
 
 
-class Room(BaseModel):
-    class Type(str, Enum):
-        classroom_lab = "classroom_lab"
-        classroom_lecture = "classroom_lecture"
-        study_room = "study_room"
+class RoomType(str, Enum):
+    classroom_lab = "classroom_lab"
+    classroom_lecture = "classroom_lecture"
+    study_room = "study_room"
 
-    id: int
+
+class Room(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
     room_number: str
     building_wing: str
     building_floor: int
-    room_type: Type
+    room_type: RoomType
