@@ -44,9 +44,9 @@ pip install -r requirements.txt
 
 ### Run Server
 
-> Note: Make sure you are in the `backup` directory before running any commands.
+> Note: Make sure you are in the `backend` directory before running any commands.
 > ```bash
-> cd backup
+> cd backend
 > ```
 
 #### 1. Activate the Python virtual environment
