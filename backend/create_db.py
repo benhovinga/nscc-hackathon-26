@@ -1,18 +1,28 @@
+import datetime
 from sqlmodel import Session
-from app.models import Room, RoomType
+from app.models import (
+    Course,
+    CourseSchedule,
+    DaysNoClass,
+    DaysNoSchool,
+    Room,
+    RoomType,
+    Season,
+    SchoolTerm,
+)
 from app.database import engine, create_db_and_tables
 
 
-def insert_all_rooms():
+def insert_rooms():
     rooms = [
         Room(
-            room_number="D127",
+            room_number="D125",
             building_wing="D",
             building_floor=1,
             room_type=RoomType.classroom_lab,
         ),
         Room(
-            room_number="D125",
+            room_number="D127",
             building_wing="D",
             building_floor=1,
             room_type=RoomType.classroom_lab,
@@ -49,6 +59,71 @@ def insert_all_rooms():
         session.commit()
 
 
+def insert_school_term():
+    with Session(engine) as session:
+        session.add(
+            SchoolTerm(
+                season=Season.winter,
+                startDate=datetime.date(year=2026, month=1, day=5),
+                endDate=datetime.date(year=2026, month=4, day=15),
+            )
+        )
+        session.commit()
+
+
+def insert_courses():
+    with Session(engine) as session:
+        session.add(
+            Course(
+                code="OSYS1000",
+                name="Operating Systems - Linux",
+                instructor="Smith, Ryan",
+                school_term=1,
+            )
+        )
+        session.commit()
+
+
+def insert_course_schedule():
+    with Session(engine) as session:
+        session.add(
+            CourseSchedule(
+                day_of_Week=1,
+                start_time=datetime.time(hour=8, minute=30),
+                end_time=datetime.time(hour=10, minute=30),
+                course=1,
+                room=2
+            )
+        )
+        session.commit()
+
+
+def insert_days_no_school():
+    days_no_school = [DaysNoSchool(date=datetime.date(year=2026, month=2, day=16))]
+    with Session(engine) as session:
+        for day in days_no_school:
+            session.add(day)
+        session.commit()
+
+
+def insert_days_no_class():
+    days_no_class = [DaysNoClass(date=datetime.date(year=2026, month=2, day=25))]
+    with Session(engine) as session:
+        for day in days_no_class:
+            session.add(day)
+        session.commit()
+
+
+def insert_sample_room_booking():
+    with Session(engine) as session:
+        pass
+
+
 if __name__ == "__main__":
     create_db_and_tables()
-    insert_all_rooms()
+    insert_rooms()
+    insert_school_term()
+    insert_courses()
+    insert_course_schedule()
+    insert_days_no_school()
+    insert_days_no_class()
