@@ -101,6 +101,15 @@ def insert_course_schedule():
                 room=2,
             )
         )
+        session.add(
+            CourseSchedule(
+                day_of_Week=3,
+                start_time=datetime.time(hour=10, minute=30),
+                end_time=datetime.time(hour=12, minute=20),
+                course=1,
+                room=4,
+            )
+        )
         session.commit()
 
 
