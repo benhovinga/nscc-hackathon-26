@@ -99,7 +99,11 @@ def insert_course_schedule():
 
 
 def insert_days_no_school():
-    days_no_school = [DaysNoSchool(date=datetime.date(year=2026, month=2, day=16))]
+    days_no_school = [
+            DaysNoSchool(date=datetime.date(year=2026, month=2, day=16)),
+            DaysNoSchool(date=datetime.date(year=2026, month=4, day=3)),
+            DaysNoSchool(date=datetime.date(year=2026, month=4, day=6)),
+        ]
     with Session(engine) as session:
         for day in days_no_school:
             session.add(day)
@@ -107,7 +111,13 @@ def insert_days_no_school():
 
 
 def insert_days_no_class():
-    days_no_class = [DaysNoClass(date=datetime.date(year=2026, month=2, day=25))]
+    days_no_class = [
+        DaysNoClass(date=datetime.date(year=2026, month=2, day=25)),
+        DaysNoClass(date=datetime.date(year=2026, month=3, day=16)),
+        DaysNoClass(date=datetime.date(year=2026, month=3, day=17)),
+        DaysNoClass(date=datetime.date(year=2026, month=3, day=18)),
+        DaysNoClass(date=datetime.date(year=2026, month=3, day=19)),
+        DaysNoClass(date=datetime.date(year=2026, month=3, day=20)),]
     with Session(engine) as session:
         for day in days_no_class:
             session.add(day)
