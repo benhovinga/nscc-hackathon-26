@@ -1,5 +1,10 @@
+# Python built-in library imports
 import datetime
+
+# Third-party library imports (pip)
 from sqlmodel import Session
+
+# Module imports
 from app.models import (
     Course,
     CourseSchedule,
