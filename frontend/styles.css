@@ -13,12 +13,6 @@ div{
     font-size: 40px;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
 .class-list {
     height: 600px;
     padding: 20px;
@@ -31,4 +25,8 @@ div{
     padding: 20px;
     width: 40%;
     display:inline-block;
+}
+
+.weekly-schedule{
+    height: 600px;
 }
