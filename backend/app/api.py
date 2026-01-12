@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 # Module imports
-from .models import Room, RoomType
+from .models import Course, CourseSchedule, Room, RoomType
 from .database import create_db_and_tables, engine
 
 
@@ -42,10 +42,10 @@ def list_rooms():
     with Session(engine) as session:
         rooms = session.exec(select(Room)).all()
         return rooms
-    
+
 
 @app.get("/rooms/types", response_model=list[RoomType])
-def get_room_types():
+def list_room_types():
     return list(RoomType)
 
 
@@ -56,3 +56,43 @@ def get_room(room_id: int):
         if room == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return room
+
+
+@app.get("/rooms/{room_id}/schedule", response_model=list[CourseSchedule])
+def get_room_schedule(room_id: int):
+    with Session(engine) as session:
+        schedule = session.exec(
+            select(CourseSchedule).where(CourseSchedule.room == room_id)
+        ).all()
+        if schedule == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return schedule
+        
+
+@app.get("/courses", response_model=list[Course])
+def list_courses():
+    with Session(engine) as session:
+        courses = session.exec(select(Course)).all()
+        return courses
+
+
+@app.get("/courses/{course_id}", response_model=Course)
+def get_course(course_id: int):
+    with Session(engine) as session:
+        course = session.exec(
+            select(Course).where(Course.id == course_id)
+        ).one_or_none()
+        if course == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return course
+
+
+@app.get("/courses/{course_id}/schedule", response_model=list[CourseSchedule])
+def get_course_schedule(course_id: int):
+    with Session(engine) as session:
+        schedule = session.exec(
+            select(CourseSchedule).where(CourseSchedule.course == course_id)
+        ).all()
+        if schedule == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return schedule
