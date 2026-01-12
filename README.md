@@ -42,6 +42,16 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+#### 5. Build the local database
+
+```bash
+python create_db.py
+```
+
+> Note: This creates a local SQLite database file `database.db`. This file is not committed to the repository.
+
+> Warning: If you ever have a database conflict, delete your local `database.db` file and re-run the above command.
+
 ### Run Server
 
 > Note: Make sure you are in the `backend` directory before running any commands.
