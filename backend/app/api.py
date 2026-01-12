@@ -37,14 +37,14 @@ def read_root() -> dict:
     return {"message": "Welcome to the API."}
 
 
-@app.get("/room", response_model=list[Room])
+@app.get("/rooms", response_model=list[Room])
 def list_rooms():
     with Session(engine) as session:
         rooms = session.exec(select(Room)).all()
         return rooms
 
 
-@app.get("/room/{room_id}", response_model=Room)
+@app.get("/rooms/{room_id}", response_model=Room)
 def get_room(room_id: int):
     with Session(engine) as session:
         room = session.exec(select(Room).where(Room.id == room_id)).one_or_none()
