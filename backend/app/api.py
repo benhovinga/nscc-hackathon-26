@@ -38,9 +38,24 @@ def read_root() -> dict:
 
 
 @app.get("/rooms", response_model=list[Room])
-def list_rooms():
+def list_rooms(
+    room_type: str | None = None,
+    building_wing: str | None = None,
+    building_floor: int | None = None,
+):
+    expression_chain = []
+    if room_type and room_type in RoomType:
+        expression_chain.append(Room.room_type == room_type)
+    if building_wing:
+        expression_chain.append(Room.building_wing == building_wing)
+    if building_floor:
+        expression_chain.append(Room.building_floor == building_floor)
+
     with Session(engine) as session:
-        rooms = session.exec(select(Room)).all()
+        if len(expression_chain) > 0:
+            rooms = session.exec(select(Room).where(*expression_chain)).all()
+        else:
+            rooms = session.exec(select(Room)).all()
         return rooms
 
 
@@ -67,7 +82,7 @@ def get_room_schedule(room_id: int):
         if schedule == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return schedule
-        
+
 
 @app.get("/courses", response_model=list[Course])
 def list_courses():
