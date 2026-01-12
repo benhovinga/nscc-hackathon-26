@@ -42,6 +42,11 @@ def list_rooms():
     with Session(engine) as session:
         rooms = session.exec(select(Room)).all()
         return rooms
+    
+
+@app.get("/rooms/types", response_model=list[RoomType])
+def get_room_types():
+    return list(RoomType)
 
 
 @app.get("/rooms/{room_id}", response_model=Room)
