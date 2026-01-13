@@ -43,17 +43,17 @@ def list_rooms(
     building_wing: str | None = None,
     building_floor: int | None = None,
 ):
-    expression_chain = []
+    filters = []
     if room_type and room_type in RoomType:
-        expression_chain.append(Room.room_type == room_type)
+        filters.append(Room.room_type == room_type)
     if building_wing:
-        expression_chain.append(Room.building_wing == building_wing)
+        filters.append(Room.building_wing == building_wing)
     if building_floor:
-        expression_chain.append(Room.building_floor == building_floor)
+        filters.append(Room.building_floor == building_floor)
 
     with Session(engine) as session:
-        if len(expression_chain) > 0:
-            rooms = session.exec(select(Room).where(*expression_chain)).all()
+        if len(filters) > 0:
+            rooms = session.exec(select(Room).where(*filters)).all()
         else:
             rooms = session.exec(select(Room)).all()
         return rooms
