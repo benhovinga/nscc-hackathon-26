@@ -65,21 +65,21 @@ def list_room_types():
 
 
 @app.get("/rooms/{room_number}", response_model=Room)
-def get_room(room_number: int):
+def get_room(room_number: str):
     with Session(engine) as session:
         room = session.exec(
-            select(Room).where(Room.room_number == room_number)
+            select(Room).where(Room.room_number == room_number.upper())
         ).one_or_none()
         if room == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return room
 
 
-@app.get("/rooms/{room_id}/schedule", response_model=list[CourseSchedule])
-def get_room_schedule(room_id: int):
+@app.get("/rooms/{room_number}/schedule", response_model=list[CourseSchedule])
+def get_room_schedule(room_number: str):
     with Session(engine) as session:
         schedule = session.exec(
-            select(CourseSchedule).where(CourseSchedule.room == room_id)
+            select(CourseSchedule).where(CourseSchedule.room == room_number.upper())
         ).all()
         if schedule == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
