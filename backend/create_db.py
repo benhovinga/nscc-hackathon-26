@@ -1,4 +1,5 @@
 # Python built-in library imports
+import csv
 import datetime
 
 # Third-party library imports (pip)
@@ -19,46 +20,21 @@ from app.models import (
 )
 from app.database import engine, create_db_and_tables
 
+ROOMS_DATA_FILE = "../data/rooms.csv"
 
 def insert_rooms():
-    rooms = [
-        Room(
-            room_number="D125",
-            building_wing="D",
-            building_floor=1,
-            room_type=RoomType.classroom_lab,
-        ),
-        Room(
-            room_number="D127",
-            building_wing="D",
-            building_floor=1,
-            room_type=RoomType.classroom_lab,
-        ),
-        Room(
-            room_number="D225",
-            building_wing="D",
-            building_floor=2,
-            room_type=RoomType.classroom_lab,
-        ),
-        Room(
-            room_number="D227",
-            building_wing="D",
-            building_floor=2,
-            room_type=RoomType.classroom_lab,
-        ),
-        Room(
-            room_number="D325",
-            building_wing="D",
-            building_floor=3,
-            room_type=RoomType.classroom_lab,
-        ),
-        Room(
-            room_number="D327",
-            building_wing="D",
-            building_floor=3,
-            room_type=RoomType.classroom_lab,
-        ),
-    ]
+    rooms = []
+    with open(ROOMS_DATA_FILE, newline="") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            rooms.append(
+                Room(
+                    building_wing=row['building_wing'],
+                    building_floor=int(row['building_floor']),
+                    room_number=row['room_number'],
+                    room_type=RoomType[row['room_type']]
+                )
+            )
 
     with Session(engine) as session:
         for room in rooms:
