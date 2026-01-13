@@ -75,7 +75,7 @@ def insert_course_schedule():
                 start_time=datetime.time(hour=8, minute=30),
                 end_time=datetime.time(hour=10, minute=30),
                 course=1,
-                room=2,
+                room="D225",
             )
         )
         session.add(
@@ -84,7 +84,7 @@ def insert_course_schedule():
                 start_time=datetime.time(hour=10, minute=30),
                 end_time=datetime.time(hour=12, minute=20),
                 course=1,
-                room=4,
+                room="D227",
             )
         )
         session.commit()
@@ -128,7 +128,7 @@ def insert_sample_room_booking():
                 end_date_time=datetime.datetime(
                     year=2026, month=1, day=19, hour=10, minute=30
                 ),
-                room=4,
+                room="D227",
                 is_private=True,
                 booked_by="Ben Hovinga",
                 school_term=1,
