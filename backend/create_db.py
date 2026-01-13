@@ -12,7 +12,6 @@ from app.models import (
     DaysNoClass,
     DaysNoSchool,
     Room,
-    RoomBooking,
     RoomType,
     Season,
     SchoolTerm,
@@ -22,17 +21,25 @@ from app.database import engine, create_db_and_tables
 
 ROOMS_DATA_FILE = "../data/rooms.csv"
 
+
 def insert_rooms():
     rooms = []
     with open(ROOMS_DATA_FILE, newline="") as file:
         reader = csv.DictReader(file)
         for row in reader:
+            if not isinstance(row["room_number"][0], str) or not isinstance(
+                row["room_number"][1:4], int
+            ):
+                # If the room doesn't start with a letter or the numbers are invalid raise an error
+                raise ValueError(
+                    f"Value of room_number {row['room_number']} must be formatted X123."
+                )
             rooms.append(
                 Room(
-                    building_wing=row['building_wing'],
-                    building_floor=int(row['building_floor']),
-                    room_number=row['room_number'],
-                    room_type=RoomType[row['room_type']]
+                    building_wing=row["building_wing"].upper(),
+                    building_floor=int(row["building_floor"]),
+                    room_number=row["room_number"].upper(),
+                    room_type=RoomType[row["room_type"].lower()],
                 )
             )
 
@@ -75,7 +82,7 @@ def insert_course_schedule():
                 start_time=datetime.time(hour=8, minute=30),
                 end_time=datetime.time(hour=10, minute=30),
                 course=1,
-                room=2,
+                room="D225",
             )
         )
         session.add(
@@ -84,7 +91,7 @@ def insert_course_schedule():
                 start_time=datetime.time(hour=10, minute=30),
                 end_time=datetime.time(hour=12, minute=20),
                 course=1,
-                room=4,
+                room="D227",
             )
         )
         session.commit()
@@ -117,25 +124,6 @@ def insert_days_no_class():
         session.commit()
 
 
-def insert_sample_room_booking():
-    with Session(engine) as session:
-        session.add(
-            RoomBooking(
-                title="sample booking",
-                start_date_time=datetime.datetime(
-                    year=2026, month=1, day=19, hour=8, minute=30
-                ),
-                end_date_time=datetime.datetime(
-                    year=2026, month=1, day=19, hour=10, minute=30
-                ),
-                room=4,
-                is_private=True,
-                booked_by="Ben Hovinga",
-                school_term=1,
-            )
-        )
-
-
 if __name__ == "__main__":
     create_db_and_tables()
     insert_rooms()
@@ -144,4 +132,3 @@ if __name__ == "__main__":
     insert_course_schedule()
     insert_days_no_school()
     insert_days_no_class()
-    insert_sample_room_booking()

@@ -48,8 +48,7 @@ class SchoolTerm(SQLModel, table=True):
 
 
 class Room(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    room_number: str = Field(index=True)
+    room_number: str = Field(primary_key=True)
     building_wing: str
     building_floor: int
     room_type: RoomType
@@ -69,15 +68,4 @@ class CourseSchedule(SQLModel, table=True):
     start_time: datetime.time
     end_time: datetime.time
     course: int = Field(foreign_key="course.id")
-    room: int = Field(foreign_key="room.id")
-
-
-class RoomBooking(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    title: str
-    start_date_time: datetime.datetime
-    end_date_time: datetime.datetime
-    is_private: bool | None = Field(default=False)
-    booked_by: str
-    school_term: int = Field(foreign_key="schoolterm.id")
-    room: int = Field(foreign_key="room.id")
+    room: str = Field(foreign_key="room.room_number")

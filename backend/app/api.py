@@ -64,10 +64,12 @@ def list_room_types():
     return list(RoomType)
 
 
-@app.get("/rooms/{room_id}", response_model=Room)
-def get_room(room_id: int):
+@app.get("/rooms/{room_number}", response_model=Room)
+def get_room(room_number: int):
     with Session(engine) as session:
-        room = session.exec(select(Room).where(Room.id == room_id)).one_or_none()
+        room = session.exec(
+            select(Room).where(Room.room_number == room_number)
+        ).one_or_none()
         if room == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return room
