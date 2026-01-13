@@ -69,14 +69,3 @@ class CourseSchedule(SQLModel, table=True):
     end_time: datetime.time
     course: int = Field(foreign_key="course.id")
     room: str = Field(foreign_key="room.room_number")
-
-
-class RoomBooking(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    title: str
-    start_date_time: datetime.datetime
-    end_date_time: datetime.datetime
-    is_private: bool | None = Field(default=False)
-    booked_by: str
-    school_term: int = Field(foreign_key="schoolterm.id")
-    room: str = Field(foreign_key="room.room_number")

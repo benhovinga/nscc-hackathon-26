@@ -12,7 +12,6 @@ from app.models import (
     DaysNoClass,
     DaysNoSchool,
     Room,
-    RoomBooking,
     RoomType,
     Season,
     SchoolTerm,
@@ -117,25 +116,6 @@ def insert_days_no_class():
         session.commit()
 
 
-def insert_sample_room_booking():
-    with Session(engine) as session:
-        session.add(
-            RoomBooking(
-                title="sample booking",
-                start_date_time=datetime.datetime(
-                    year=2026, month=1, day=19, hour=8, minute=30
-                ),
-                end_date_time=datetime.datetime(
-                    year=2026, month=1, day=19, hour=10, minute=30
-                ),
-                room="D227",
-                is_private=True,
-                booked_by="Ben Hovinga",
-                school_term=1,
-            )
-        )
-
-
 if __name__ == "__main__":
     create_db_and_tables()
     insert_rooms()
@@ -144,4 +124,3 @@ if __name__ == "__main__":
     insert_course_schedule()
     insert_days_no_school()
     insert_days_no_class()
-    insert_sample_room_booking()
