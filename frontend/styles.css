@@ -27,6 +27,10 @@ div{
     display:inline-block;
 }
 
+.filter-items{
+    padding: 10px;
+}
+
 .weekly-schedule{
     height: 600px;
 }
