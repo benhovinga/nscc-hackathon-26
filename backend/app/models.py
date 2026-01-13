@@ -14,9 +14,12 @@ class Season(str, Enum):
 
 
 class RoomType(str, Enum):
-    classroom_lab = "classroom_lab"
-    classroom_lecture = "classroom_lecture"
-    study_room = "study_room"
+    classroom = "classroom"
+    computer_classroom = "computer_classroom"
+    network_computer_classroom = "network_computer_classroom"
+    lab_classroom = "lab_classroom"
+    shop = "shop"
+    project_room = "project_room"
 
 
 class WeekDay(int, Enum):
