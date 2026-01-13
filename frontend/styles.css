@@ -1,7 +1,7 @@
 :root {
-    --primary: # ;
-    --secondary: # ;
-    --third: # ;
+    --primary: #ffffff ;
+    --secondary: #004477 ;
+    --third: #cedc00 ;
 }
 
 div{
@@ -15,15 +15,24 @@ div{
 
 .class-list {
     height: 600px;
-    padding: 20px;
-    width: 50%;
+    margin-left: 250px;
+    padding-right: 50px;
+    width: 40%;
     display:inline-block;
+}
+
+.scrollable-list{
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #bbb;
+    background-color: #eee;
+    padding: 10px;
 }
 
 .filters{
     height: 600px;
     padding: 20px;
-    width: 40%;
+    width: fit-content;
     display:inline-block;
 }
 
@@ -33,4 +42,20 @@ div{
 
 .weekly-schedule{
     height: 600px;
+}
+
+.return-button {
+    margin-left: 200px;
+}
+
+.roomNum{
+    display: block;
+    color: #004780;
+    background-color: #f5f5f5;
+    text-decoration: none;
+    padding: 8px 25px 8px 14px;
+    margin: 10px;
+    border-left: 7px solid #cedc00;
+    font-weight: 600;
+    position: relative;
 }
