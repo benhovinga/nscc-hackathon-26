@@ -26,12 +26,15 @@ def insert_rooms():
     with open(ROOMS_DATA_FILE, newline="") as file:
         reader = csv.DictReader(file)
         for row in reader:
+            if not isinstance(row["room_number"][0], str) or not isinstance(row["room_number"][1:4], int):
+                # If the room doesn't start with a letter or the numbers are invalid raise an error
+                raise ValueError(f"Value of room_number {row['room_number']} must be formatted X123.")
             rooms.append(
                 Room(
-                    building_wing=row['building_wing'],
+                    building_wing=row['building_wing'].upper(),
                     building_floor=int(row['building_floor']),
-                    room_number=row['room_number'],
-                    room_type=RoomType[row['room_type']]
+                    room_number=row['room_number'].upper(),
+                    room_type=RoomType[row['room_type'].lower()]
                 )
             )
 
