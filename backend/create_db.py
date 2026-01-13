@@ -15,6 +15,7 @@ from app.models import (
     RoomType,
     Season,
     SchoolTerm,
+    WeekDay,
 )
 from app.database import engine, create_db_and_tables
 
@@ -94,7 +95,7 @@ def insert_course_schedule():
     with Session(engine) as session:
         session.add(
             CourseSchedule(
-                day_of_Week=1,
+                day_of_Week=WeekDay.MONDAY,
                 start_time=datetime.time(hour=8, minute=30),
                 end_time=datetime.time(hour=10, minute=30),
                 course=1,
@@ -103,7 +104,7 @@ def insert_course_schedule():
         )
         session.add(
             CourseSchedule(
-                day_of_Week=3,
+                day_of_Week=WeekDay.WEDNESDAY,
                 start_time=datetime.time(hour=10, minute=30),
                 end_time=datetime.time(hour=12, minute=20),
                 course=1,

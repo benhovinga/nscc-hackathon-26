@@ -19,6 +19,16 @@ class RoomType(str, Enum):
     study_room = "study_room"
 
 
+class WeekDay(int, Enum):
+    SUNDAY = 0
+    MONDAY = 1
+    TUESDAY = 2
+    WEDNESDAY = 3
+    THURSDAY = 4
+    FRIDAY = 5
+    SATURDAY = 6
+
+
 class DaysNoClass(SQLModel, table=True):
     date: datetime.date = Field(primary_key=True)
 
@@ -52,7 +62,7 @@ class Course(SQLModel, table=True):
 
 class CourseSchedule(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
-    day_of_Week: int
+    day_of_Week: WeekDay
     start_time: datetime.time
     end_time: datetime.time
     course: int = Field(foreign_key="course.id")
