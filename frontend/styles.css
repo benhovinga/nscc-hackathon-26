@@ -65,4 +65,17 @@ div{
 .schedule-link {
     text-align: right;
     float: right;
+    padding: 20px;
+    width: 50%;
+}
+
+.filters{
+    height: 600px;
+    padding: 20px;
+    width: 40%;
+    display:inline-block;
+}
+
+.weekly-schedule{
+    height: 600px;
 }
