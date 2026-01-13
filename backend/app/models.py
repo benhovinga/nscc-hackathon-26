@@ -64,7 +64,7 @@ class RoomBooking(SQLModel, table=True):
     title: str
     start_date_time: datetime.datetime
     end_date_time: datetime.datetime
-    is_private: bool
+    is_private: bool | None = Field(default=False)
     booked_by: str
     school_term: int = Field(foreign_key="schoolterm.id")
     room: int = Field(foreign_key="room.id")

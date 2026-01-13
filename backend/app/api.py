@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 # Module imports
-from .models import Room, RoomType
+from .models import Course, CourseSchedule, Room, RoomType
 from .database import create_db_and_tables, engine
 
 
@@ -37,17 +37,77 @@ def read_root() -> dict:
     return {"message": "Welcome to the API."}
 
 
-@app.get("/room", response_model=list[Room])
-def list_rooms():
+@app.get("/rooms", response_model=list[Room])
+def list_rooms(
+    room_type: str | None = None,
+    building_wing: str | None = None,
+    building_floor: int | None = None,
+):
+    expression_chain = []
+    if room_type and room_type in RoomType:
+        expression_chain.append(Room.room_type == room_type)
+    if building_wing:
+        expression_chain.append(Room.building_wing == building_wing)
+    if building_floor:
+        expression_chain.append(Room.building_floor == building_floor)
+
     with Session(engine) as session:
-        rooms = session.exec(select(Room)).all()
+        if len(expression_chain) > 0:
+            rooms = session.exec(select(Room).where(*expression_chain)).all()
+        else:
+            rooms = session.exec(select(Room)).all()
         return rooms
 
 
-@app.get("/room/{room_id}", response_model=Room)
+@app.get("/rooms/types", response_model=list[RoomType])
+def list_room_types():
+    return list(RoomType)
+
+
+@app.get("/rooms/{room_id}", response_model=Room)
 def get_room(room_id: int):
     with Session(engine) as session:
         room = session.exec(select(Room).where(Room.id == room_id)).one_or_none()
         if room == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return room
+
+
+@app.get("/rooms/{room_id}/schedule", response_model=list[CourseSchedule])
+def get_room_schedule(room_id: int):
+    with Session(engine) as session:
+        schedule = session.exec(
+            select(CourseSchedule).where(CourseSchedule.room == room_id)
+        ).all()
+        if schedule == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return schedule
+
+
+@app.get("/courses", response_model=list[Course])
+def list_courses():
+    with Session(engine) as session:
+        courses = session.exec(select(Course)).all()
+        return courses
+
+
+@app.get("/courses/{course_id}", response_model=Course)
+def get_course(course_id: int):
+    with Session(engine) as session:
+        course = session.exec(
+            select(Course).where(Course.id == course_id)
+        ).one_or_none()
+        if course == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return course
+
+
+@app.get("/courses/{course_id}/schedule", response_model=list[CourseSchedule])
+def get_course_schedule(course_id: int):
+    with Session(engine) as session:
+        schedule = session.exec(
+            select(CourseSchedule).where(CourseSchedule.course == course_id)
+        ).all()
+        if schedule == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return schedule
