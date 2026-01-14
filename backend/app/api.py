@@ -36,7 +36,7 @@ app.add_middleware(
 def read_root() -> dict:
     return {"message": "Welcome to the API."}
 
-
+#return rooms
 @app.get("/rooms", response_model=list[Room])
 def list_rooms(
     room_type: str | None = None,
@@ -87,9 +87,26 @@ def get_room_schedule(room_number: str):
 
 
 @app.get("/courses", response_model=list[Course])
-def list_courses():
+def list_courses(
+    instructor: str | None = None, 
+    school_term: int | None = None 
+    ):
+    filters = []
+    #collect courses and put into list
+    if instructor and school_term in Course:
+        filters.append(Course.instructor == instructor) #Creates a conditional argument to be used on the where excecution later on
+    if instructor:
+        filters.append(Course.instructor == instructor)
+    if school_term:
+        filters.append(Course.school_term == school_term)
+
+    #Find courses using the list of conditionals with "where"
     with Session(engine) as session:
-        courses = session.exec(select(Course)).all()
+        if len(filters) > 0:
+            courses = session.exec(select(Course).where(*filters)).all()
+        else:
+            #Run if no filters were appended, returns all courses
+            courses = session.exec(select(Course)).all()
         return courses
 
 
