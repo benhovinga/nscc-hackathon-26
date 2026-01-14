@@ -4,60 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>IT Campus Class Availability</title>
+    <title>Room Availability at NSCC IT Campus</title>
 </head>
 
 <body>
-    <div class="main-title"><h1>IT Campus Class Availability</h1></div>
-<main>
-    <div class="class-list">
-        <p>class list</p>
-        <div class="scrollable-list">
-            <nav>
+    <header>
+        <h1 id="main-title">Room Availability at NSCC IT Campus</h1>
+    </header>
+    <main>
+        <h2 id="page-title">Room Selector</h2>
+
+        <section id="room-list">
+            <h4>Room List</h4>
+            <div class="scrollable-list">
                 <ul>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
-                    <li class="roomNum">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
+                    <li class="room-item">D327<a href="#" class="schedule-link">See Schedule</a></li>
                 </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="filters">
-        <p>filters</p>
-    <div class="filter-items"><label for="wing">Choose a Wing of the building:</label>
-        <select id="wings" name="wing">
-            <option value="D Wing">D Wing</option>
-            <option value="C Wing">C Wing</option>
-            <option value="B Wing">B Wing</option>
-            <option value="A Wing">A Wing</option>
-        </select>
-        </div>
-    <div class="filter-items"><label for="room-type">Choose type of room:</label>
-        <select id="roomType" name="room=type">
-            <option value="Computer Lab">Computer Lab</option>
-            <option value="Lecture Room">Lecture Room</option>
-            <option value="Study Room">Study Room</option>
-            <option value="Science Lab">Science Lab</option>
-        </select>
-        </div>
-    <div class="filter-items"><label for="floor">Choose the floor:</label>
-        <select id="level" name="floor">
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-        </select>
-        </div>
-    </div>
-</main>
+            </div>
+        </section>
 
-<footer>
-    <!-- TODO -->
-</footer>
+        <section id="room-filters">
+            <h4>Filters</h4>
+            <div class="filter">
+                <label for="room-type">Room Type:</label>
+                <select id="room-type" name="room-type">
+                    <option value="classroom">Classroom</option>
+                    <option value="computer_classroom">Computer Classroom</option>
+                    <option value="network_computer_classroom">Computer Classroom (networking)</option>
+                    <option value="lab_classroom">Lab Classroom</option>
+                    <option value="project_room">Student Project Room</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="building-wing">Building Wing:</label>
+                <select id="building-wing" name="building-wing">
+                    <option value="">Any</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="building-floor">Building Floor:</label>
+                <select id="building-floor" name="building-floor">
+                    <option value="">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </section>
+    </main>
 
-<script src="./main.js"></script>
+    <footer>
+        <!-- TODO -->
+    </footer>
+
+    <script src="./main.js"></script>
 </body>
 </html>
