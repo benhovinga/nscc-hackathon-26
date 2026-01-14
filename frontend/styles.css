@@ -1,0 +1,32 @@
+:root {
+    --primary: # ;
+    --secondary: # ;
+    --third: # ;
+}
+
+div{
+    border: solid red; 
+}
+
+.main-title {
+    justify-items: center;
+    font-size: 40px;
+}
+
+.class-list {
+    height: 600px;
+    padding: 20px;
+    width: 50%;
+    display:inline-block;
+}
+
+.filters{
+    height: 600px;
+    padding: 20px;
+    width: 40%;
+    display:inline-block;
+}
+
+.weekly-schedule{
+    height: 600px;
+}

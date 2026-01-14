@@ -18,6 +18,6 @@ Project members will document how they each use AI below.
 
 ## Max
 
-
+- Used ChatGPT and Gemini to generate wireframe concepts for the front end
 
 ## Zack
