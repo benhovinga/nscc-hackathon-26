@@ -10,6 +10,8 @@ cd frontend
 python -m http.server 9000
 ```
 
+Now you can open the frontend website at https://localhost:9000/
+
 ## Backend
 
 ### Setup
