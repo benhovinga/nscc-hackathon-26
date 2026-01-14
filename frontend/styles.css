@@ -4,42 +4,48 @@
     --third: #cedc00 ;
 }
 
-div{
+/* div{
     border: solid red; 
+} */
+
+h1{
+    font-family: "Open Sans";
 }
 
 .main-title {
     justify-items: center;
     font-size: 40px;
+    margin-top: 5%;
 }
 
 .class-list {
-    height: 600px;
-    margin-left: 250px;
-    padding-right: 50px;
+    margin-left: 10%;
+    margin-top: 1%;
     width: 40%;
     display:inline-block;
+    justify-items: right;
+    vertical-align: top;
 }
 
 .scrollable-list{
-    max-height: 300px;
+    width: fit-content;
     overflow-y: auto;
     border: 1px solid #bbb;
     background-color: #eee;
-    padding: 10px;
-    display: flex;
     justify-content: space-between;
+    font-family: "Open Sans";
 }
 
 .filters{
-    height: 600px;
-    padding: 20px;
-    width: fit-content;
+    width: 30%;
     display:inline-block;
+    margin-top: 1%;
 }
 
 .filter-items{
     padding: 10px;
+    width: fit-content;
+    font-family: "Open Sans";
 }
 
 .weekly-schedule{
