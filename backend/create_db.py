@@ -27,8 +27,9 @@ def insert_rooms():
     with open(ROOMS_DATA_FILE, newline="") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            if not isinstance(row["room_number"][0], str) or not isinstance(
-                row["room_number"][1:4], int
+            if (
+                not isinstance(row["room_number"][0], str)
+                or not row["room_number"][1:4].isdigit()
             ):
                 # If the room doesn't start with a letter or the numbers are invalid raise an error
                 raise ValueError(
