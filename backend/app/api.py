@@ -87,9 +87,20 @@ def get_room_schedule(room_number: str):
 
 
 @app.get("/courses", response_model=list[Course])
-def list_courses():
+def list_courses(instructor: str | None = None, school_term: int | None = None):
+    filters = []
+    if instructor:
+        filters.append(Course.instructor == instructor)
+    if school_term:
+        filters.append(Course.school_term == school_term)
+
+    # Find courses using the list of conditionals with "where"
     with Session(engine) as session:
-        courses = session.exec(select(Course)).all()
+        if len(filters) > 0:
+            courses = session.exec(select(Course).where(*filters)).all()
+        else:
+            # Run if no filters were appended, returns all courses
+            courses = session.exec(select(Course)).all()
         return courses
 
 
