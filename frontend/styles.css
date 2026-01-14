@@ -1,7 +1,7 @@
 :root {
-    --primary: # ;
-    --secondary: # ;
-    --third: # ;
+    --primary: #ffffff ;
+    --secondary: #004477 ;
+    --third: #cedc00 ;
 }
 
 div{
@@ -15,9 +15,58 @@ div{
 
 .class-list {
     height: 600px;
+    margin-left: 250px;
+    padding-right: 50px;
+    width: 40%;
+    display:inline-block;
+}
+
+.scrollable-list{
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #bbb;
+    background-color: #eee;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters{
+    height: 600px;
+    padding: 20px;
+    width: fit-content;
+    display:inline-block;
+}
+
+.filter-items{
+    padding: 10px;
+}
+
+.weekly-schedule{
+    height: 600px;
+}
+
+.return-button {
+    margin-left: 200px;
+}
+
+.roomNum{
+    display: block;
+    color: #004780;
+    background-color: #f5f5f5;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-left: 7px solid #cedc00;
+    font-weight: 600;
+    width: 450px;
+}
+
+.schedule-link {
+    text-align: right;
+    float: right;
     padding: 20px;
     width: 50%;
-    display:inline-block;
 }
 
 .filters{
