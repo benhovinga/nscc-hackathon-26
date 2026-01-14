@@ -1,1 +1,7 @@
 room_number,day_of_week,start_time,end_time,course_code,course_name,course_instructor
+D124,tuesday,8:30AM,10:30AM,_,_,Campanis_George
+D124,tuesday,10:30AM,12:30PM,,_,Scarfone_Marc
+D124,tuesday,1:30PM,3:30PM,_,_,Im_Cheolsoon
+D124,wednesday,12:30PM,2:30PM,_,_,Campanis_George
+D124,friday,8:30AM,10:30AM,_,_,Im_Cheolsoon,
+D124,friday,12:30PM,2:30PM,_,_,Campanis_George,
