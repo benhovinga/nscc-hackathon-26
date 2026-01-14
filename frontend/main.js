@@ -1,18 +1,88 @@
 const API_BASE = "http://127.0.0.1:8000";
 
-function load_room_list(elem) {
-    fetch(API_BASE + "/rooms")
-        .then((response) => response.json())
-        .then((json) => console.log(json))
-        .catch((reason) => console.error(reason));
+
+function updateRoomList(rooms) {
+    const buildRow = (roomNumber) => {
+        // Create new list item
+        const li = document.createElement("li");
+        li.classList.add("room-item");
+        li.textContent = roomNumber;
+
+        // Create new link
+        const link = document.createElement("a");
+        link.href = "schedule.html?room_number=" + roomNumber;
+        link.classList.add("schedule-link");
+        link.textContent = "See Schedule";
+
+        // Append the link to the list item
+        li.appendChild(link);
+
+        // Return the built row
+        return li;
+    }
+    // Locate the room list in the DOM
+    const roomListElem = document.querySelector("#room-list ul");
+    // Clear the room list
+    roomListElem.innerHTML = "";
+    if (rooms.length > 0){
+        // Add each room to the list
+        rooms.forEach(room => {
+            roomListElem.appendChild(buildRow(room.room_number));
+        });
+    } else {
+        // No rooms were found
+        const li = document.createElement("li");
+        li.classList.add("room-not-found");
+        li.textContent = "No rooms found.";
+        roomListElem.append(li);
+    }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.debug("DEBUG", "Main program is starting.");
 
-    const room_list_elem = document.querySelector("#room-list ul");
-    if (room_list_elem) {
-        console.debug("DEBUG", "Loading room list.");
-        load_room_list(room_list_elem);
+function loadRoomList(roomType = "", buildingWing = "", buildingFloor = "") {
+    // Build the request url with query parameters
+    const requestURL = new URL(API_BASE + "/rooms");
+    if (roomType) requestURL.searchParams.set("room_type", roomType);
+    if (buildingWing) requestURL.searchParams.set("building_wing", buildingWing);
+    if (buildingFloor) requestURL.searchParams.set("building_floor", buildingFloor);
+    console.debug("DEBUG:", "Request URL", requestURL);
+
+    // Make the API request
+    fetch(requestURL)
+        .then((response) => response.json())
+        .then((json) => updateRoomList(json))
+        //.catch((reason) => console.error(reason));
+}
+
+
+// Main program
+function main() {
+    console.debug("DEBUG:", "Main program is starting.");
+
+    const url = new URL(window.location.href);
+    const pathname = url.pathname;
+    const searchParams = url.searchParams;
+
+    if (pathname === "/" || pathname === "/index.html") {
+        // We are on the index page
+        console.debug("DEBUG:", "Page=index");
+
+        // Declare the filter values
+        let roomType = searchParams.get("room_type") || "classroom";
+        let buildingWing = searchParams.get("building_wing") || "";
+        let buildingFloor = searchParams.get("building_floor") || "";
+        console.debug("DEBUG:", "set room_type", roomType);
+        console.debug("DEBUG:", "set building_wing", buildingWing);
+        console.debug("DEBUG:", "set building_floor", buildingFloor);
+
+        loadRoomList(roomType, buildingWing, buildingFloor);
+
+    } else if (pathname === "schedule.html") {
+        // We are on the schedule page
+        console.debug("DEBUG:", "Page=schedule");
     }
-});
+}
+
+
+// Load main when the DOM is ready
+document.addEventListener("DOMContentLoaded", () => main());
