@@ -1,6 +1,15 @@
 # NSCC Hackathon '26: Team Syntax Error Geeks
 
 
+## Frontend
+
+### Start frontend server
+
+```bash
+cd frontend
+python -m http.server 9000
+```
+
 ## Backend
 
 ### Setup
@@ -52,7 +61,7 @@ python create_db.py
 
 > Warning: If you ever have a database conflict, delete your local `database.db` file and re-run the above command.
 
-### Run Server
+### Start backend server
 
 > Note: Make sure you are in the `backend` directory before running any commands.
 > ```bash
