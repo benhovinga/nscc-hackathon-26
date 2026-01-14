@@ -36,7 +36,6 @@ app.add_middleware(
 def read_root() -> dict:
     return {"message": "Welcome to the API."}
 
-#return rooms
 @app.get("/rooms", response_model=list[Room])
 def list_rooms(
     room_type: str | None = None,
