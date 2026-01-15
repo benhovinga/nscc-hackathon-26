@@ -51,7 +51,6 @@ header {
 #main-title {
     color: var(--color-text-light);
     font-size: 1.67rem;
-    padding-right: 15rem;
     margin: auto;
     align-self: center;
     display: inline-block;
