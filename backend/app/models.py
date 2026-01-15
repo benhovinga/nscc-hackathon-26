@@ -22,14 +22,14 @@ class RoomType(str, Enum):
     project_room = "project_room"
 
 
-class WeekDay(int, Enum):
-    SUNDAY = 0
-    MONDAY = 1
-    TUESDAY = 2
-    WEDNESDAY = 3
-    THURSDAY = 4
-    FRIDAY = 5
-    SATURDAY = 6
+class WeekDay(str, Enum):
+    sunday = "sunday"
+    monday = "monday"
+    tuesday = "tuesday"
+    wednesday = "wednesday"
+    thursday = "thursday"
+    friday = "friday"
+    saturday = "saturday"
 
 
 class DaysNoClass(SQLModel, table=True):
