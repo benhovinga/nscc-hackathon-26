@@ -42,26 +42,14 @@ D227,thursday,10:30 AM,12:30 PM,PROG1700,Logic and Programming,Gillespie Geoff
 D227,thursday,1:30 PM,3:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
 D227,friday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,Sudhakar Tanuja
 D227,friday,10:30 AM,12:30 PM,NETW1027,Intro to Networking & Security,Verge Todd
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D325
-D327,monday,8:30 AM
-D327,monday,10:30 AM
-D327,monday,1:30 PM
-D327,tuesday,8:30 AM
-D327,tuesday,10:30 AM
-D327,wednesday,8:30 AM
-D327,wednesday,10:30 AM
-D327,wednesday,1:30 AM
-D327,thursday,8:30 AM
-D327,friday,8:30 AM
-D327,friday,10:30 AM
+D327,monday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,Tsaltas Dean
+D327,monday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
+D327,monday,1:30 PM,3:30 PM,DBAS5115,Intro to Data,Crocker Michael
+D327,tuesday,8:30 AM,10:30 AM,INET2005,Web Application Programming I,Trumbull Michael
+D327,tuesday,10:30 AM,12:30 PM,INET2005,Web Application Programming I,Trumbull Michael
+D327,wednesday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,Tsaltas Dean
+D327,wednesday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
+D327,wednesday,1:30 PM,3:30 PM,PROG5110,Topics in AI,Crocker Michael
+D327,thursday,8:30 AM,10:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
+D327,friday,8:30 AM,10:30 PM,PROG5120,Programming For AI I,Tsaltas Dean
+D327,friday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
