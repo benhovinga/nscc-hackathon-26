@@ -1,4 +1,5 @@
 # Python built-in library imports
+import os
 import csv
 import datetime
 
@@ -126,6 +127,12 @@ def insert_days_no_class():
 
 
 if __name__ == "__main__":
+    try:
+        print("Removing previous database file.")
+        os.remove("database.db")
+    except FileNotFoundError:
+        print("Database file not found.")
+
     create_db_and_tables()
     insert_rooms()
     insert_school_term()
