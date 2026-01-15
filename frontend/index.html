@@ -15,15 +15,6 @@
         <h2 id="page-title">Room Selector</h2>
 
         <div class="flex">
-            <section id="room-list">
-                <h4>Room List</h4>
-                <div class="scrollable-list">
-                    <ul>
-                        <li class="room-not-found">Loading...</li>
-                    </ul>
-                </div>
-            </section>
-
             <section id="room-filters">
                 <h4>Filters</h4>
                 <form action="/" method="get">
@@ -60,6 +51,15 @@
                     <input type="submit" value="Search" />
                     <input id="reset-filters" type="reset" value="Reset" data-goto="./" />
                 </form>
+            </section>
+
+            <section id="room-list">
+                <h4>Room List</h4>
+                <div class="scrollable-list">
+                    <ul>
+                        <li class="room-not-found">Loading...</li>
+                    </ul>
+                </div>
             </section>
         </div>
     </main>
