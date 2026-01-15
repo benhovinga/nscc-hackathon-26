@@ -67,14 +67,20 @@ function main() {
         // We are on the index page
         console.debug("DEBUG:", "Page=index");
 
-        // Declare the filter values
-        let roomType = searchParams.get("room_type") || "classroom";
-        let buildingWing = searchParams.get("building_wing") || "";
-        let buildingFloor = searchParams.get("building_floor") || "";
+        // Set filter values
+        const roomType = searchParams.get("room_type") || "";
+        const buildingWing = searchParams.get("building_wing") || "";
+        const buildingFloor = searchParams.get("building_floor") || "";
         console.debug("DEBUG:", "set room_type", roomType);
         console.debug("DEBUG:", "set building_wing", buildingWing);
         console.debug("DEBUG:", "set building_floor", buildingFloor);
 
+        // Update the form filters
+        document.getElementById('room-type').value = roomType;
+        document.getElementById('building-wing').value = buildingWing;
+        document.getElementById('building-floor').value = buildingFloor;
+
+        // Load the room list from the backend
         loadRoomList(roomType, buildingWing, buildingFloor);
 
     } else if (pathname === "schedule.html") {
@@ -86,3 +92,10 @@ function main() {
 
 // Load main when the DOM is ready
 document.addEventListener("DOMContentLoaded", () => main());
+
+
+// Reset the filters when the reset button is clicked (aka refresh the page)
+document.getElementById("reset-filters").addEventListener("click", (event) => {
+    event.preventDefault();
+    window.location.href = event.target.dataset.goto; // use the 'data-goto' attribute on the reset button
+});
