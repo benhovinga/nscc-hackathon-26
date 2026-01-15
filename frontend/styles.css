@@ -142,12 +142,8 @@ main {
     width: 100%;
 }
 
-.weekly-schedule{
-    height: 600px;
-}
-
 .return-button {
-    margin-left: 200px;
+    padding-top: 1rem;
 }
 
 .screenreader {
@@ -156,4 +152,81 @@ main {
     overflow: hidden;
     clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
     clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
+}
+
+.schedule {
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Time column */
+.time-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  min-width: 80px;
+  background-color: #c62828;
+  /* position: fixed;
+  z-index: 1; */
+}
+
+.time-label {
+  height: 3rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+/* Day columns */
+.day-column {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+  border-left: 1px solid #ccc;
+}
+
+.day-header {
+  height: 5rem;
+  text-align: center;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  background-color: #0E1326;
+  color: #eee;
+}
+
+.hour-row {
+  height: 3rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Booking blocks */
+.time-block {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.open {
+  background-color: #c8f7c5;
+  color: #2e7d32;
+}
+
+.in-use {
+  background-color: #f8d7da;
+  color: #c62828;
+}
+
+.time-column .day-header{
+  background-color: #2e7d32;
 }
