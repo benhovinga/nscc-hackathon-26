@@ -36,7 +36,7 @@ function getOffsetHours(time) {
 
 function renderSchedule(data) {
 //Clears the schedule
-  const container = document.querySelector('.schedule');
+  const container = document.getElementById('schedule');
   container.innerHTML = '';
 
   // TIME COLUMN

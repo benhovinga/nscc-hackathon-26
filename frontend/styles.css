@@ -154,7 +154,7 @@ main {
     clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
 
-.schedule {
+#schedule {
   display: flex;
   max-width: 100%;
   overflow-x: auto;
