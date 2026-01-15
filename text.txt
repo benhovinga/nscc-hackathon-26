@@ -1,0 +1,4 @@
+// const header = document.querySelector('.day-header');
+// const height = getComputedStyle(header).height; // returns "160px" if height is 10rem
+// const headerHeightPx = parseFloat(height); // 160
+// // const headerHeight = headerHeightPx / 16; // 10
