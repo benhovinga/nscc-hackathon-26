@@ -1,31 +1,35 @@
 # NSCC Hackathon '26: Team Syntax Error Geeks
 
 
-## Frontend
+## Requirements:
+
+- Python 3.13+
+
+
+## Frontend Instructions
 
 ### Start frontend server
 
-```bash
+```pwsh
 cd frontend
 python -m http.server 9000
 ```
 
 Now you can open the frontend website at http://localhost:9000/
 
-## Backend
 
-### Setup
+## Backend Instructions
 
-Requirements:
-
-- Python 3.13+
+### Setup Backend
 
 #### 1. Create a Python virtual environment
 
-```bash
+```pwsh
 cd backend
 python -m venv .venv
 ```
+
+> Learn more about the [Python virtual environment](https://www.w3schools.com/python/python_virtualenv.asp)
 
 #### 2. Activate the virtual environment
 
@@ -37,25 +41,25 @@ source .venv/bin/activate
 
 Windows PowerShell
 
-```bash
+```pwsh
 .venv\Scripts\Activate.ps1
 ```
 
 #### 3. Upgrade `pip`
 
-```bash
+```pwsh
 python -m pip install --upgrade pip
 ```
 
 #### 4. Install project dependencies
 
-```bash
+```pwsh
 pip install -r requirements.txt
 ```
 
 #### 5. Build the local database
 
-```bash
+```pwsh
 python create_db.py
 ```
 
@@ -66,7 +70,7 @@ python create_db.py
 ### Start backend server
 
 > Note: Make sure you are in the `backend` directory before running any commands.
-> ```bash
+> ```pwsh
 > cd backend
 > ```
 
@@ -76,7 +80,7 @@ If you closed your terminal or are coming back another day, you will need to rea
 
 #### 2. Start the backend server
 
-```bash
+```pwsh
 python main.py
 ```
 
