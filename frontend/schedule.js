@@ -13,7 +13,7 @@ const timeSlots = [
 ];
 
 //Just the days of the week
-const daysOfWeek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const daysOfWeek = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
 
 //Converts time in formats like 7:30 to minutes like 450 minutes so we can some sweet maths with it
 function toMinutes(time) {
