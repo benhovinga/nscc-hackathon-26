@@ -4,7 +4,7 @@ import csv
 import datetime
 
 # Third-party library imports (pip)
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 # Module imports
 from app.models import (
@@ -20,7 +20,9 @@ from app.models import (
 )
 from app.database import engine, create_db_and_tables
 
+
 ROOMS_DATA_FILE = "../data/rooms.csv"
+COURSE_SCHEDULES_DATA_FILE = "../data/course_schedules.csv"
 
 
 def insert_rooms():
@@ -63,39 +65,51 @@ def insert_school_term():
         session.commit()
 
 
-def insert_courses():
-    with Session(engine) as session:
-        session.add(
-            Course(
-                code="OSYS1000",
-                name="Operating Systems - Linux",
-                instructor="Smith, Ryan",
-                school_term=1,
-            )
+def insert_course_schedules():
+    courses = []
+    with open(COURSE_SCHEDULES_DATA_FILE, newline="") as file:
+        file_data = tuple(csv.DictReader(file))
+
+    # Load the courses from the data file
+    for row in file_data:
+        course = Course(
+            code=row["course_code"],
+            name=row["course_name"],
+            instructor=row["course_instructor"],
+            school_term=1,
         )
+        # Ensure no duplicate entries
+        if course not in courses:
+            courses.append(course)
+
+    # Add the courses to the database
+    with Session(engine) as session:
+        for course in courses:
+            session.add(course)
         session.commit()
 
-
-def insert_course_schedule():
-    with Session(engine) as session:
-        session.add(
-            CourseSchedule(
-                day_of_Week=WeekDay.MONDAY,
-                start_time=datetime.time(hour=8, minute=30),
-                end_time=datetime.time(hour=10, minute=30),
-                course=1,
-                room="D225",
+        # Load the course schedules and map to the course id from the database
+        for row in file_data:
+            course = session.exec(
+                select(Course).where(
+                    Course.code == row["course_code"],
+                    Course.instructor == row["course_instructor"],
+                )
+            ).one()
+            # Add the schedule to the database
+            session.add(
+                CourseSchedule(
+                    day_of_Week=WeekDay(row["day_of_week"]),
+                    start_time=datetime.datetime.strptime(
+                        row["start_time"], "%I:%M %p"
+                    ).time(),
+                    end_time=datetime.datetime.strptime(
+                        row["end_time"], "%I:%M %p"
+                    ).time(),
+                    course=course.id,  # type: ignore
+                    room=row["room_number"],
+                )
             )
-        )
-        session.add(
-            CourseSchedule(
-                day_of_Week=WeekDay.WEDNESDAY,
-                start_time=datetime.time(hour=10, minute=30),
-                end_time=datetime.time(hour=12, minute=20),
-                course=1,
-                room="D227",
-            )
-        )
         session.commit()
 
 
@@ -133,10 +147,18 @@ if __name__ == "__main__":
     except FileNotFoundError:
         print("Database file not found.")
 
+    print("Creating new database")
     create_db_and_tables()
+
+    print("Inserting rooms")
     insert_rooms()
+
+    print("Inserting school terms")
     insert_school_term()
-    insert_courses()
-    insert_course_schedule()
+
+    print("Inserting course schedules")
+    insert_course_schedules()
+
+    print("Inserting days no school and days no class.")
     insert_days_no_school()
     insert_days_no_class()
