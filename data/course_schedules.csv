@@ -1,55 +1,55 @@
 room_number,day_of_week,start_time,end_time,course_code,course_name,course_instructor
-D124,tuesday,8:30 AM,10:30 AM,DBAS3019,Business Data Modelling,Campanis George
-D124,tuesday,10:30 AM,12:30 PM,ICOM2702,Prof Practice For IT II,Scarfone Marc
-D124,tuesday,1:30 PM,3:30 PM,DBAS3018,Data Movement and Integration,Im Cheolsoon
-D124,wednesday,12:30 PM,2:30 PM,DBAS2030,Intro to Stats for Data,Campanis George
-D124,friday,8:30 AM,10:30 AM,DBAS3018,Data Movement and Integration,Im Cheolsoon
-D124,friday,12:30 PM,2:30 PM,DBAS3017,User Experience Techniques,Campanis George
-D125,monday,8:30 AM,10:30 AM,NETW1027,Intro to Networking & Security,Verge Todd
-D125,monday,10:30 AM,12:30 PM,PROG2100,Programming C++,Russell David
-D125,tuesday,8:30 AM,10:30 AM,ICOM2702,Prof Practice for IT II,Scarfone Marc
-D125,tuesday,10:30 AM,12:30 PM,OSYS1000,Operating Systems - Linux,Im Cheolsoon
-D125,tueday,2:30 PM,4:30 PM,OSYS1200,Intro Windows Administration,Kuzniar Carson
-D125,wednesday,10:30 AM,12:30 PM,ICOM2701,Prof Practice for IT I,Scarfone Marc
-D125,wednesday,1:30 PM,3:30 PM,PROG1400,Intro Obj Oriented Programming,Abu Backer Yousef
-D125,thursday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,Campanis George
-D125,thursday,10:30 AM,12:30 PM,PROG2007,Programming II,Shewan Brian
-D125,thursday,2:30 PM,4:30 PM,OSYS100,Operating Systems - Linux,Im Cheolsoon
-D125,friday,8:30 AM,10:30 AM,PROG1700,Logic and Programming,Shewan Brian
-D125,friday,10:30 AM,12:30 PM,INFT2100,Project Management,Penny Daniel
-D125,friday,1:30 AM,3:30 PM,NETW1027,Intro to Networking & Security,Verge Todd
-D225,monday,2:30 PM,4:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
-D225,tuesday,8:30 AM,10:30 AM,WEBD1000,Website Development,Kowalski Bill
-D225,tuesday,1:30 PM,3:30 PM,NETW1027,Intro to Networking & Security,Munday Russell
-D225,wednesday,8:30 AM,10:30 AM,PROG2700,Client Side Programming,Marques Delano
-D225,wednesday,10:30 AM,12:30 PM,NETW1027,Intro to Networking & Security,Verge Todd
-D225,wednesday,2:30 PM,4:30 PM,WEBD3100,Web Design Fundamentals,Sudhakar Tanuja
-D225,thursday,8:30 AM,10:30 AM,WEBD1000,Website Development,Kowalski Bill
-D225,friday,8:30 AM,10:30 AM,WEBD1000,Website Development,Abu Baker Yousef
-D227,monday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,Sudhakar Tanuja
-D227,monday,10:30 AM,12:30 PM,PROG1700,Logic and Programming,Gillespie Geoff
-D227,monday,12:30 PM,2:30 PM,INFT2100,Project Management,Penny Daniel
-D227,monday,2:30 PM,4:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
-D227,tuesday,8:30 AM,10:30 AM,PROG1700,Logic and Programming,Gillespie Geoff
-D227,tuesday,10:30 AM,12:30 PM,WEBD1000,Website Development,Abu Baker Yousef
-D227,tuesday,12:30 PM,2:30 PM,PROG1700,Logic and Programming,Gillespie Geoff
-D227,tuesday,2:30 PM,4:30 PM,PROG2700,Client Side Programming,Marques Denlano
-D227,wednesday,9:30 AM,11:30 AM,INET2005,Web Application Programming I,Trumbull Michael
-D227,wednesday,11:30 AM,1:30 PM,DBAS1007,Data Fundementals,Sudhakar Tanuja
-D227,wednesday,1:30 PM,3:30 PM,NETW1027,Intro to Networking & Security,Munday Russell
-D227,thursday,8:30 AM,10:30 AM,PROG2200,Advanced Topics in Programming,Abu Baker Yousef
-D227,thursday,10:30 AM,12:30 PM,PROG1700,Logic and Programming,Gillespie Geoff
-D227,thursday,1:30 PM,3:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
-D227,friday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,Sudhakar Tanuja
-D227,friday,10:30 AM,12:30 PM,NETW1027,Intro to Networking & Security,Verge Todd
-D327,monday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,Tsaltas Dean
-D327,monday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
-D327,monday,1:30 PM,3:30 PM,DBAS5115,Intro to Data,Crocker Michael
-D327,tuesday,8:30 AM,10:30 AM,INET2005,Web Application Programming I,Trumbull Michael
-D327,tuesday,10:30 AM,12:30 PM,INET2005,Web Application Programming I,Trumbull Michael
-D327,wednesday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,Tsaltas Dean
-D327,wednesday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
-D327,wednesday,1:30 PM,3:30 PM,PROG5110,Topics in AI,Crocker Michael
-D327,thursday,8:30 AM,10:30 PM,ICOM2702,Prof Practice for IT II,Scarfone Marc
-D327,friday,8:30 AM,10:30 PM,PROG5120,Programming For AI I,Tsaltas Dean
-D327,friday,10:30 AM,12:30 PM,PROG5155,Machine Learning,Tsaltas Dean
+D124,tuesday,8:30 AM,10:30 AM,DBAS3019,Business Data Modelling,"Campanis, George"
+D124,tuesday,10:30 AM,12:30 PM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D124,tuesday,1:30 PM,3:30 PM,DBAS3018,Data Movement and Integration,"Im, Cheolsoon"
+D124,wednesday,12:30 PM,2:30 PM,DBAS2030,Intro to Stats for Data,"Campanis, George"
+D124,friday,8:30 AM,10:30 AM,DBAS3018,Data Movement and Integration,"Im, Cheolsoon"
+D124,friday,12:30 PM,2:30 PM,DBAS3017,User Experience Techniques,"Campanis, George"
+D125,monday,8:30 AM,10:30 AM,NETW1027,Intro to Networking & Security,"Verge, Todd"
+D125,monday,10:30 AM,12:30 PM,PROG2100,Programming C++,"Russell, David"
+D125,tuesday,8:30 AM,10:30 AM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D125,tuesday,10:30 AM,12:30 PM,OSYS1000,Operating Systems - Linux,"Im, Cheolsoon"
+D125,tuesday,2:30 PM,4:30 PM,OSYS1200,Intro Windows Administration,"Kuzniar, Carson"
+D125,wednesday,10:30 AM,12:30 PM,ICOM2701,Prof Practice for IT I,"Scarfone, Marc"
+D125,wednesday,1:30 PM,3:30 PM,PROG1400,Intro Obj Oriented Programming,"Abu Baker, Yousef"
+D125,thursday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,"Campanis, George"
+D125,thursday,10:30 AM,12:30 PM,PROG2007,Programming II,"Shewan, Brian"
+D125,thursday,2:30 PM,4:30 PM,OSYS1000,Operating Systems - Linux,"Im, Cheolsoon"
+D125,friday,8:30 AM,10:30 AM,PROG1700,Logic and Programming,"Shewan, Brian"
+D125,friday,10:30 AM,12:30 PM,INFT2100,Project Management,"Penny, Daniel"
+D125,friday,1:30 AM,3:30 PM,NETW1027,Intro to Networking & Security,"Verge, Todd"
+D225,monday,2:30 PM,4:30 PM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D225,tuesday,8:30 AM,10:30 AM,WEBD1000,Website Development,"Kowalski, Bill"
+D225,tuesday,1:30 PM,3:30 PM,NETW1027,Intro to Networking & Security,"Munday, Russell"
+D225,wednesday,8:30 AM,10:30 AM,PROG2700,Client Side Programming,"Marques, Delano"
+D225,wednesday,10:30 AM,12:30 PM,NETW1027,Intro to Networking & Security,"Verge, Todd"
+D225,wednesday,2:30 PM,4:30 PM,WEBD3100,Web Design Fundamentals,"Sudhakar, Tanuja"
+D225,thursday,8:30 AM,10:30 AM,WEBD1000,Website Development,"Kowalski, Bill"
+D225,friday,8:30 AM,10:30 AM,WEBD1000,Website Development,"Abu Baker, Yousef"
+D227,monday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,"Sudhakar, Tanuja"
+D227,monday,10:30 AM,12:30 PM,PROG1700,Logic and Programming,"Gillespie, Geoff"
+D227,monday,12:30 PM,2:30 PM,INFT2100,Project Management,"Penny, Daniel"
+D227,monday,2:30 PM,4:30 PM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D227,tuesday,8:30 AM,10:30 AM,PROG1700,Logic and Programming,"Gillespie, Geoff"
+D227,tuesday,10:30 AM,12:30 PM,WEBD1000,Website Development,"Abu Baker, Yousef"
+D227,tuesday,12:30 PM,2:30 PM,PROG1700,Logic and Programming,"Gillespie, Geoff"
+D227,tuesday,2:30 PM,4:30 PM,PROG2700,Client Side Programming,"Marques, Delano"
+D227,wednesday,9:30 AM,11:30 AM,INET2005,Web Application Programming I,"Trumbull, Michael"
+D227,wednesday,11:30 AM,1:30 PM,DBAS1007,Data Fundementals,"Sudhakar, Tanuja"
+D227,wednesday,1:30 PM,3:30 PM,NETW1027,Intro to Networking & Security,"Munday, Russell"
+D227,thursday,8:30 AM,10:30 AM,PROG2200,Advanced Topics in Programming,"Abu Baker, Yousef"
+D227,thursday,10:30 AM,12:30 PM,PROG1700,Logic and Programming,"Gillespie, Geoff"
+D227,thursday,1:30 PM,3:30 PM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D227,friday,8:30 AM,10:30 AM,DBAS1007,Data Fundementals,"Sudhakar, Tanuja"
+D227,friday,10:30 AM,12:30 PM,NETW1027,Intro to Networking & Security,"Verge, Todd"
+D327,monday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,"Tsaltas, Dean"
+D327,monday,10:30 AM,12:30 PM,PROG5155,Machine Learning,"Tsaltas, Dean"
+D327,monday,1:30 PM,3:30 PM,DBAS5115,Intro to Data,"Crocker, Michael"
+D327,tuesday,8:30 AM,10:30 AM,INET2005,Web Application Programming I,"Trumbull, Michael"
+D327,tuesday,10:30 AM,12:30 PM,INET2005,Web Application Programming I,"Trumbull, Michael"
+D327,wednesday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,"Tsaltas, Dean"
+D327,wednesday,10:30 AM,12:30 PM,PROG5155,Machine Learning,"Tsaltas, Dean"
+D327,wednesday,1:30 PM,3:30 PM,PROG5110,Topics in AI,"Crocker, Michael"
+D327,thursday,8:30 AM,10:30 AM,ICOM2702,Prof Practice for IT II,"Scarfone, Marc"
+D327,friday,8:30 AM,10:30 AM,PROG5120,Programming For AI I,"Tsaltas, Dean"
+D327,friday,10:30 AM,12:30 PM,PROG5155,Machine Learning,"Tsaltas, Dean"

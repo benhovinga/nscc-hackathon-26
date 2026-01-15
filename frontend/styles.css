@@ -74,6 +74,7 @@ main {
 }
 
 #room-list {
+    order: 1;
     flex-grow: 2;
     padding: 0;
     min-width: 250px;
@@ -122,6 +123,7 @@ main {
 }
 
 #room-filters{
+    order: 2;
     flex-grow: 1;
     max-width: 200px;
 }
@@ -144,4 +146,12 @@ main {
 
 .return-button {
     margin-left: 200px;
+}
+
+.screenreader {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+    clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
