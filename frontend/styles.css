@@ -38,10 +38,23 @@ header {
     padding: 2rem 0.5rem;
 }
 
+.header-box{
+    display: flex;
+    padding-left: 10px;
+    flex-flow: row wrap;
+}
+
+.logo{
+    max-height: fit-content;
+}
+
 #main-title {
     color: var(--color-text-light);
-    text-align: center;
     font-size: 1.67rem;
+    padding-right: 15rem;
+    margin: auto;
+    align-self: center;
+    display: inline-block;
 }
 
 main {
