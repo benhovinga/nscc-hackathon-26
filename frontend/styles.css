@@ -4,6 +4,8 @@
   --color-primary-hover: #1B5C8C;
   --color-accent: #CEDC00;
   --color-text-light: #FFFFFF;
+  --color-border: #ccc;
+  --color-border-light: #eee;
 
   --font-header: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   --font-body: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -87,8 +89,8 @@ main {
 .scrollable-list{
     height: 300px;
     overflow-y: auto;
-    border: 1px solid #bbb;
-    background-color: #eee;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-border-light);
     padding: 0;
     display: flex;
     justify-content: space-between;
@@ -166,44 +168,43 @@ main {
 .time-column {
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
   min-width: 80px;
-  background-color: #c62828;
-  /* position: fixed;
-  z-index: 1; */
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
 }
 
 .time-label {
   height: 3rem;
   font-size: 0.9rem;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-right: 8px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: right;
+  padding-right: 0.5rem;
 }
 
 /* Day columns */
 .day-column {
   position: relative;
   flex: 1;
-  min-width: 120px;
-  border-left: 1px solid #ccc;
+  min-width: 100px;
+  border-left: 1px solid var(--color-border);
+}
+
+.day-column:last-of-type{
+  border-right: 1px solid var(--color-border);
 }
 
 .day-header {
-  height: 5rem;
-  text-align: center;
+  height: 3rem;
   font-weight: bold;
   text-align: center;
-  border-bottom: 1px solid #ccc;
-  background-color: #0E1326;
-  color: #eee;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background-dark);
+  color: var(--color-border-light);
 }
 
 .hour-row {
   height: 3rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 /* Booking blocks */
@@ -216,19 +217,9 @@ main {
   justify-content: center;
   font-size: 0.8rem;
   border-radius: 4px;
-  padding: 2px;
-}
-
-.open {
-  background-color: #c8f7c5;
-  color: #2e7d32;
 }
 
 .in-use {
-  background-color: #f8d7da;
-  color: #c62828;
-}
-
-.time-column .day-header{
-  background-color: #2e7d32;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }
