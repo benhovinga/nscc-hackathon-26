@@ -13,7 +13,7 @@ Project members will document how they each use AI below.
 
 
 ## Josh
-- This is a test to commit and Push From Josh Vs Code
+- Used Copilot to Generate simple CSS styles for index.html Footer
 
 
 ## Max

@@ -157,3 +157,47 @@ main {
     clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
     clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
+
+/* Footer Area */
+.footer {
+    background-color: var(--color-background-dark);
+    color: #e6e6e6;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    /* Moving it to the bottom of the page */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #4da3ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer h1 {
+    font-size: 1rem;
+    margin: 15px 0;
+    font-weight: 700;
+    color: var(--color-text-light);
+}
+
+.footer h1 a {
+    font-weight: 600;
+}
+
+.footer h1,
+.footer a {
+    display: inline-block;
+    margin: 0 5px;
+}
