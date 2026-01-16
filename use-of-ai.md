@@ -16,7 +16,7 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 
 ## Josh
 
-- 
+- Used Copilot to for research (like how you might Google something).
 
 
 ## Max
