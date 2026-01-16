@@ -107,6 +107,7 @@ function renderSchedule(data) {
     // TIME COLUMN
     const timeCol = document.createElement('div');
     timeCol.className = 'time-column';
+    timeCol.ariaHidden = true;
     const timeHeader = document.createElement('div');
     timeHeader.className = 'day-header';
     timeCol.appendChild(timeHeader);
@@ -141,6 +142,7 @@ function renderSchedule(data) {
         TIME_SLOTS.forEach(() => {
             const row = document.createElement('div');
             row.className = 'hour-row';
+            row.ariaHidden = true;
             dayCol.appendChild(row);
         });
 
