@@ -9,7 +9,9 @@ Project members will document how they each use AI below.
 
 
 ## David
-
+- Used Copilot to write function that renders content from JavaScript to HTML
+- Used Perplexity to create stylized button
+- Used Copilot to debug JavaScript code
 
 
 ## Josh
