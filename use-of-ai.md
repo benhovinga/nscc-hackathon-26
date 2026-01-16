@@ -10,10 +10,12 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 
 ## David
 
+- 
 
 
 ## Josh
-- This is a test to commit and Push From Josh Vs Code
+
+- 
 
 
 ## Max
