@@ -178,6 +178,7 @@ function loadRoomSchedule(roomNumber) {
         })
         .then((json) => {
             console.debug("DEBUG:", "JSON", json);
+            document.getElementById("room-number").innerHTML = roomNumber;
             // TODO: Parse room schedule to use David's schedule
 
             // Render the room schedule
