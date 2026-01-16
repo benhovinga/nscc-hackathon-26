@@ -7,13 +7,6 @@ const TIME_SLOTS = [
     '13:00','14:00','15:00','16:00','17:00',
 ];
 
-const RAW_SCHEDULE_DATA = [
-    { day: 'Monday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Tuesday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Thursday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Monday', start: '10:30', end: '12:30', status: 'IN-USE' }
-];
-
 
 function updateRoomList(rooms) {
     const buildRow = (roomNumber) => {
