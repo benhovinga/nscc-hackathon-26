@@ -133,7 +133,7 @@ function renderSchedule(data) {
 
         const header = document.createElement('div');
         header.className = 'day-header';
-        header.textContent = day;
+        header.textContent = toTitleCase(day);
         dayCol.appendChild(header);
 
         const headerHeight = timeHeader.offsetHeight;
