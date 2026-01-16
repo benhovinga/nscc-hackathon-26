@@ -17,7 +17,7 @@
     <main class="container">
         <h2 id="page-title">Room Selector</h2>
 
-        <div class="flex">
+        <div class="room-flex">
             <section id="room-filters">
                 <h4>Filters</h4>
                 <a class="screenreader" href="#room-list">Jump to the room list</a>
@@ -52,8 +52,10 @@
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <input type="submit" value="Search" />
-                    <input id="reset-filters" type="reset" value="Reset" data-goto="./" />
+                    <div class="filter-buttons">
+                        <input type="submit" value="Search" />
+                        <input id="reset-filters" type="reset" value="Reset" data-goto="./" />
+                    </div>
                 </form>
             </section>
 

@@ -46,6 +46,21 @@ h4 {
     margin-bottom: 0.7rem;
 }
 
+button, input[type="submit"], input[type="reset"] {
+    min-height: 40px;
+    min-width: 40px;
+    font-weight: 700;
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: var(--color-primary-hover);
+}
+
 header {
     background-color: var(--color-background-dark);
     padding: 2rem 0.5rem;
@@ -85,7 +100,7 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.flex {
+.room-flex {
     display: flex;
     flex-flow: row wrap;
     gap: 0.5rem;
@@ -158,8 +173,14 @@ main {
     width: 100%;
 }
 
-.return-button {
-    padding-top: 1rem;
+.filter-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+}
+
+.filter-buttons * {
+    flex-grow: 1;
 }
 
 .screenreader {
@@ -170,10 +191,18 @@ main {
     clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
 
+.page-title-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 #schedule {
   display: flex;
   max-width: 100%;
   overflow-x: auto;
+  margin-top: 1rem;
 }
 
 /* Time column */
