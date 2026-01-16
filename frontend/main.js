@@ -1,6 +1,6 @@
 const API_BASE = "http://127.0.0.1:8000";
 
-const WEEKDAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+const WEEKDAYS = ['monday','tuesday','wednesday','thursday','friday'];
 
 const TIME_SLOTS = [
     '08:00','09:00','10:00','11:00','12:00',
@@ -71,7 +71,7 @@ function loadRoomList(roomType = "", buildingWing = "", buildingFloor = "") {
 
 // Converts time in formats like 7:30 to minutes like 450 minutes so we can do some sweet maths with it
 function toMinutes(time) {
-    const [h, m] = time.split(':').map(Number);
+    const [h, m, _] = time.split(':').map(Number);
     return h * 60 + m;
 }
 
@@ -87,6 +87,13 @@ function getDurationHours(start, end) {
 // This will give a value like one or 2.5 which we can now use to multiply by a standard unit like 3rem to get how far away our information block will be from the starting point
 function getOffsetHours(time) {
     return (toMinutes(time) - toMinutes(TIME_SLOTS[0])) / 60;
+}
+
+
+function formatTime(timeStr) {
+    const [hours, minutes] = timeStr.split(':');
+    const date = new Date(0, 0, 1, hours, minutes);
+    return date.toLocaleString('en-US', {hour: 'numeric', minute: '2-digit', hour12: true});
 }
 
 
@@ -113,8 +120,8 @@ function renderSchedule(data) {
     // GROUP BOOKINGS BY DAY
     const byDay = {};
     data.forEach(entry => {
-        if (!byDay[entry.day]) byDay[entry.day] = [];
-        byDay[entry.day].push(entry);
+        if (!byDay[entry.day_of_week]) byDay[entry.day_of_week] = [];
+        byDay[entry.day_of_week].push(entry);
     });
 
     // DAY COLUMNS
@@ -130,23 +137,48 @@ function renderSchedule(data) {
         const headerHeight = timeHeader.offsetHeight;
 
         TIME_SLOTS.forEach(() => {
-        const row = document.createElement('div');
-        row.className = 'hour-row';
-        dayCol.appendChild(row);
+            const row = document.createElement('div');
+            row.className = 'hour-row';
+            dayCol.appendChild(row);
         });
 
         (byDay[day] || []).forEach(entry => {
-        const { start, end, status } = entry;
-        const duration = getDurationHours(start, end);
-        const offset = getOffsetHours(start);
+            const {
+                start_time: startTime,
+                end_time: endTime,
+                course_code: courseCode,
+                course_name: courseName,
+                course_instructor: courseInstructor
+            } = entry;
+            const duration = getDurationHours(startTime, endTime);
+            const offset = getOffsetHours(startTime);
 
-        const block = document.createElement('div');
-        block.className = `time-block ${status.toLowerCase()}`;
-        block.textContent = `${status} ${start}–${end}`;
-        block.style.height = `${duration * 3}rem`;
-        block.style.top = `${(offset * 3 * 16 + headerHeight)}px`; // convert rem to px
+            const codeElem = document.createElement('div');
+            codeElem.classList.add('course-code');
+            codeElem.innerText = courseCode;
 
-        dayCol.appendChild(block);
+            const nameElem = document.createElement('div');
+            nameElem.classList.add('course-name');
+            nameElem.innerText = courseName;
+
+            const instructorElem = document.createElement('div');
+            instructorElem.classList.add('course-instructor');
+            instructorElem.innerText = courseInstructor;
+
+            const timeElem = document.createElement('div');
+            timeElem.classList.add('block-time');
+            timeElem.innerText = `${formatTime(startTime)} – ${formatTime(endTime)}`;
+
+            const block = document.createElement('div');
+            block.className = `time-block in-use`;
+            block.style.height = `${duration * 3}rem`;
+            block.style.top = `${(offset * 3 * 16 + headerHeight)}px`; // convert rem to px
+            block.appendChild(codeElem);
+            block.appendChild(nameElem);
+            block.appendChild(instructorElem);
+            block.appendChild(timeElem);
+
+            dayCol.appendChild(block);
         });
 
         container.appendChild(dayCol);
@@ -179,10 +211,8 @@ function loadRoomSchedule(roomNumber) {
         .then((json) => {
             console.debug("DEBUG:", "JSON", json);
             document.getElementById("room-number").innerHTML = roomNumber;
-            // TODO: Parse room schedule to use David's schedule
-
             // Render the room schedule
-            renderSchedule(RAW_SCHEDULE_DATA); // TODO: replace input with parsed data
+            renderSchedule(json);
         })
         .catch((err) => {
             console.debug("DEBUG", err.message);
@@ -217,6 +247,12 @@ function main() {
         document.getElementById('building-wing').value = buildingWing;
         document.getElementById('building-floor').value = buildingFloor;
 
+        // Reset the filters when the reset button is clicked (aka refresh the page)
+        document.getElementById("reset-filters").addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = event.target.dataset.goto; // use the 'data-goto' attribute on the reset button
+        });
+
         // Load the room list from the backend
         loadRoomList(roomType, buildingWing, buildingFloor);
 
@@ -239,10 +275,3 @@ function main() {
 
 // Load main when the DOM is ready
 document.addEventListener("DOMContentLoaded", () => main());
-
-
-// Reset the filters when the reset button is clicked (aka refresh the page)
-document.getElementById("reset-filters").addEventListener("click", (event) => {
-    event.preventDefault();
-    window.location.href = event.target.dataset.goto; // use the 'data-goto' attribute on the reset button
-});
