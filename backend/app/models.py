@@ -3,6 +3,7 @@ import datetime
 from enum import Enum
 
 # Third-party library imports (pip)
+from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 
 
@@ -69,3 +70,13 @@ class CourseSchedule(SQLModel, table=True):
     end_time: datetime.time
     course: int = Field(foreign_key="course.id")
     room: str = Field(foreign_key="room.room_number")
+
+
+class RoomSchedule(BaseModel):
+    id: int
+    day_of_week: WeekDay
+    start_time: datetime.time
+    end_time: datetime.time
+    course_code: str
+    course_name: str
+    course_instructor: str
