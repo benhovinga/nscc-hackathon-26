@@ -7,13 +7,6 @@ const TIME_SLOTS = [
     '13:00','14:00','15:00','16:00','17:00',
 ];
 
-const RAW_SCHEDULE_DATA = [
-    { day: 'Monday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Tuesday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Thursday', start: '08:30', end: '10:30', status: 'IN-USE' },
-    { day: 'Monday', start: '10:30', end: '12:30', status: 'IN-USE' }
-];
-
 
 function updateRoomList(rooms) {
     const buildRow = (roomNumber) => {
@@ -97,6 +90,15 @@ function formatTime(timeStr) {
 }
 
 
+function toTitleCase(str) {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+
 function renderSchedule(data) {
     // Clears the schedule
     const container = document.getElementById('schedule');
@@ -131,7 +133,7 @@ function renderSchedule(data) {
 
         const header = document.createElement('div');
         header.className = 'day-header';
-        header.textContent = day;
+        header.textContent = toTitleCase(day);
         dayCol.appendChild(header);
 
         const headerHeight = timeHeader.offsetHeight;
