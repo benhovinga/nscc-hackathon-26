@@ -216,6 +216,12 @@ function main() {
         document.getElementById('room-type').value = roomType;
         document.getElementById('building-wing').value = buildingWing;
         document.getElementById('building-floor').value = buildingFloor;
+        
+        // Reset the filters when the reset button is clicked (aka refresh the page)
+        document.getElementById("reset-filters").addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = event.target.dataset.goto; // use the 'data-goto' attribute on the reset button
+        });
 
         // Load the room list from the backend
         loadRoomList(roomType, buildingWing, buildingFloor);
