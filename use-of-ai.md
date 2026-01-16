@@ -19,5 +19,3 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 ## Max
 
 - Used ChatGPT and Gemini to generate wireframe concepts for the front end
-
-## Zack
