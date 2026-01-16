@@ -78,11 +78,14 @@ def get_room(room_number: str):
 @app.get("/rooms/{room_number}/schedule", response_model=list[CourseSchedule])
 def get_room_schedule(room_number: str):
     with Session(engine) as session:
+        # Check room exists
+        room = session.exec(select(Room).where(Room.room_number == room_number.upper())).one_or_none()
+        if room == None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        # Load schedule
         schedule = session.exec(
             select(CourseSchedule).where(CourseSchedule.room == room_number.upper())
         ).all()
-        if schedule == None:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         return schedule
 
 
