@@ -165,6 +165,22 @@ function roomNotFound(roomNumber = null) {
 }
 
 
+function loadRoomSchedule(roomNumber) {
+    const requestURL = new URL(`${API_BASE}/rooms/${roomNumber}/schedule`);
+    console.debug("DEBUG:", "Request URL", requestURL);
+
+    fetch(requestURL)
+        .then((response) => {
+            if (!response.ok) throw new Error("Not Found");
+            return response.json()
+        })
+        .then((json) => {
+            console.debug("DEBUG:", "JSON", json);
+        })
+        .catch((err) => roomNotFound(roomNumber));
+}
+
+
 // Main program
 function main() {
     console.debug("DEBUG:", "Main program is starting.");
@@ -200,8 +216,8 @@ function main() {
         // Get the room_number from the URL
         const roomNumber = searchParams.get("room_number");
         if (roomNumber) {
-            // TODO: Get the room schedule from the backend API
-
+            // Get the room schedule from the backend API
+            loadRoomSchedule(roomNumber)
             // TODO: Parse room schedule to use David's schedule
 
             // Render the room schedule
