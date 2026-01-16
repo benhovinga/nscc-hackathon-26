@@ -15,8 +15,10 @@
         </div>
     </header>
     <main class="container">
-        <h2>Room <span id="room-number">{room_number}</span> Weekly Schedule</h2>
-        <div class="return-button"><a href="./">&lt;-- Return</a></div>
+        <div class="page-title-flex">
+            <h2 id="page-title">Room <span id="room-number">{room_number}</span> Weekly Schedule</h2>
+            <button onclick="window.history.go(-1)">Go Back</button>
+        </div>
 
         <section id="schedule"></section>
 
