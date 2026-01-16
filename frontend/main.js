@@ -155,6 +155,16 @@ function renderSchedule(data) {
 }
 
 
+function roomNotFound(roomNumber = null) {
+    const error = document.createElement('div');
+    error.classList.add("error");
+    error.innerText = `Invalid room selection. Room ${roomNumber || "{null}"} does not exist.`;
+    const main = document.querySelector("main");
+    main.innerHTML = "";
+    main.appendChild(error);
+}
+
+
 // Main program
 function main() {
     console.debug("DEBUG:", "Main program is starting.");
@@ -196,6 +206,9 @@ function main() {
 
             // Render the room schedule
             renderSchedule(RAW_SCHEDULE_DATA);
+        } else {
+            console.debug("DEBUG:", "Room not set");
+            roomNotFound(roomNumber);
         }
     }
 }
