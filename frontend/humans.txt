@@ -1,0 +1,28 @@
+/*TEAM*/
+        Team Captain: Benjamin Hovinga
+        Contact: ben [at] hovinga.ca
+        GitHub: https://github.com/benhovinga
+        From: Halifax, Nova Scotia, Canada
+
+        Developer: Joshua Heath
+        GitHub: https://github.com/JoshHNSCC
+        From: Halifax, Nova Scotia, Canada
+
+        Developer: Max Gazley
+        GitHub: https://github.com/MaxGazley
+        From: Halifax, Nova Scotia, Canada
+
+        Developer: David
+        GitHub: https://github.com/TechedWind707
+        From: Halifax, Nova Scotia, Canada
+
+/*THANKS*/
+        Hackathon Host: Nova Scotia Community College, Institute of Technology Campus
+        Website: https://nscc.ca
+        Location: Halifax, Nova Scotia Canada
+
+/*SITE*/
+        Last update: 2026-01-16
+        Language: English (Canada)
+        Doctype: HTML5, CSS3, JavaScript ES6
+        IDE: Visual Studio Code, Draw.io
