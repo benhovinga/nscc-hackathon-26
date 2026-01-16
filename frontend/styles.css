@@ -42,12 +42,15 @@ header {
     padding: 2rem 0.5rem;
 }
 
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
 .header-box{
     display: flex;
     padding-left: 10px;
     flex-flow: row wrap;
-    max-width: var(--container-width);
-    margin: 0 auto;
     justify-content: space-between;
     gap: 2rem
 }
@@ -158,49 +161,6 @@ main {
     clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
 
-/* Footer Area */
-.footer {
-    background-color: var(--color-background-dark);
-    color: #e6e6e6;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-
-    /* Moving it to the bottom of the page */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.footer a {
-    color: #4da3ff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-.footer h1 {
-    font-size: 1rem;
-    margin: 15px 0;
-    font-weight: 700;
-    color: var(--color-text-light);
-}
-
-.footer h1 a {
-    font-weight: 600;
-}
-
-.footer h1,
-.footer a {
-    display: inline-block;
-    margin: 0 5px;
-}
 #schedule {
   display: flex;
   max-width: 100%;
@@ -283,4 +243,49 @@ main {
 .block-time {
     font-size: 0.6rem;
     font-style: italic;
+}
+
+/* Footer Area */
+footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    padding: 1.5rem 0;
+    text-align: center;
+    line-height: 1.3rem;
+    width: 100%;
+    font-size: smaller;
+}
+
+footer h4 {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+}
+
+footer a, footer a:visited {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+    text-decoration: underline;
+    color: var(--color-text-light);
+}
+
+.footer-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.footer-list {
+    text-align: initial;
+}
+
+.footer-list ul {
+    list-style: none;
+}
+
+footer p:nth-of-type(2) {
+    margin-top: 0.7rem;
 }
