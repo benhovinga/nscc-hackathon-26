@@ -6,6 +6,7 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 
 - Used Copilot to generate `\backend\.gitignore` file for a python project.
 - Used Copilot to help debug IDE issues.
+- Used Copilot to for research (like how you might Google something).
 
 
 ## David
