@@ -171,7 +171,10 @@ function loadRoomSchedule(roomNumber) {
 
     fetch(requestURL)
         .then((response) => {
-            if (!response.ok) throw new Error("Not Found");
+            if (!response.ok) {
+                console.warn(`Unable to fetch a schedule for room '${roomNumber}' from the server.`);
+                throw new Error("Not Found");
+            }
             return response.json()
         })
         .then((json) => {
@@ -223,7 +226,7 @@ function main() {
             // Render the room schedule
             renderSchedule(RAW_SCHEDULE_DATA);
         } else {
-            console.debug("DEBUG:", "Room not set");
+            console.error("Search parameter 'room_number' is not set.");
             roomNotFound(roomNumber);
         }
     }
