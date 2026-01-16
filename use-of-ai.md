@@ -8,6 +8,7 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 - Used Copilot to help debug IDE issues.
 - Used Copilot for research (like how you might Google something).
 - Used Copilot to generate a Pydantic model called `RoomSchedule` in `/backend/app/models.py`.
+- Used Copilot to generate CSS to snap the footer to the bottom of the screen.
 
 
 ## David
@@ -19,6 +20,7 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 
 ## Josh
 
+- Used Copilot to Generate simple CSS styles for index.html Footer
 - Used Copilot for research (like how you might Google something).
 
 

@@ -13,6 +13,15 @@
   --container-width: 700px;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -42,12 +51,15 @@ header {
     padding: 2rem 0.5rem;
 }
 
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
 .header-box{
     display: flex;
     padding-left: 10px;
     flex-flow: row wrap;
-    max-width: var(--container-width);
-    margin: 0 auto;
     justify-content: space-between;
     gap: 2rem
 }
@@ -63,9 +75,9 @@ header {
 }
 
 main {
-    max-width: var(--container-width);
-    margin: 1rem auto;
-    padding: 0.5rem;
+    padding: 1rem 0;
+    flex-grow: 1;
+    width: 100%;
 }
 
 #page-title {
@@ -240,4 +252,49 @@ main {
 .block-time {
     font-size: 0.6rem;
     font-style: italic;
+}
+
+/* Footer Area */
+footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    padding: 1.5rem 0;
+    text-align: center;
+    line-height: 1.3rem;
+    width: 100%;
+    font-size: smaller;
+}
+
+footer h4 {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+}
+
+footer a, footer a:visited {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+    text-decoration: underline;
+    color: var(--color-text-light);
+}
+
+.footer-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.footer-list {
+    text-align: initial;
+}
+
+.footer-list ul {
+    list-style: none;
+}
+
+footer p:nth-of-type(2) {
+    margin-top: 0.7rem;
 }
