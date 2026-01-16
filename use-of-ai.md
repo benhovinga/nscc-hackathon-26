@@ -1,23 +1,28 @@
 # Project Use of Generative Artificial Intelligence (AI)
 
-Project members will document how they each use AI below.
+We have been asked to keep track of how AI was used during the hackathon. We are using AI to assist with developing the app. We are not including AI as a feature in the app.
 
 ## Ben (team captain)
 
 - Used Copilot to generate `\backend\.gitignore` file for a python project.
 - Used Copilot to help debug IDE issues.
+- Used Copilot for research (like how you might Google something).
+- Used Copilot to generate a Pydantic model called `RoomSchedule` in `/backend/app/models.py`.
 
 
 ## David
 
+- Used Copilot to write function that renders content from JavaScript to HTML
+- Used Perplexity to create stylized button
+- Used Copilot to debug JavaScript code
 
 
 ## Josh
+
 - Used Copilot to Generate simple CSS styles for index.html Footer
+- Used Copilot for research (like how you might Google something).
 
 
 ## Max
 
 - Used ChatGPT and Gemini to generate wireframe concepts for the front end
-
-## Zack
