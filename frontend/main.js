@@ -8,10 +8,10 @@ const TIME_SLOTS = [
 ];
 
 const RAW_SCHEDULE_DATA = [
-    { day: 'Monday', start: '07:00', end: '08:30', status: 'IN-USE' },
-    { day: 'Tuesday', start: '07:00', end: '09:30', status: 'IN-USE' },
-    { day: 'Sunday', start: '07:00', end: '08:00', status: 'OPEN' },
-    { day: 'Monday', start: '08:30', end: '10:00', status: 'OPEN' }
+    { day: 'Monday', start: '08:30', end: '10:30', status: 'IN-USE' },
+    { day: 'Tuesday', start: '08:30', end: '10:30', status: 'IN-USE' },
+    { day: 'Thursday', start: '08:30', end: '10:30', status: 'IN-USE' },
+    { day: 'Monday', start: '10:30', end: '12:30', status: 'IN-USE' }
 ];
 
 
@@ -84,10 +84,10 @@ function getDurationHours(start, end) {
 }
 
 
-// This function get how far away from our zero point, which in this case is 7, a block will start.
+// This function get how far away from our zero point a block will start.
 // This will give a value like one or 2.5 which we can now use to multiply by a standard unit like 3rem to get how far away our information block will be from the starting point
 function getOffsetHours(time) {
-    return (toMinutes(time) - toMinutes('07:00')) / 60;
+    return (toMinutes(time) - toMinutes(TIME_SLOTS[0])) / 60;
 }
 
 
