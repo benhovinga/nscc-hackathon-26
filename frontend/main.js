@@ -15,7 +15,6 @@ const RAW_SCHEDULE_DATA = [
 ];
 
 
-
 function updateRoomList(rooms) {
     const buildRow = (roomNumber) => {
         // Create new list item
@@ -179,6 +178,10 @@ function loadRoomSchedule(roomNumber) {
         })
         .then((json) => {
             console.debug("DEBUG:", "JSON", json);
+            // TODO: Parse room schedule to use David's schedule
+
+            // Render the room schedule
+            renderSchedule(RAW_SCHEDULE_DATA); // TODO: replace input with parsed data
         })
         .catch((err) => roomNotFound(roomNumber));
 }
@@ -221,10 +224,6 @@ function main() {
         if (roomNumber) {
             // Get the room schedule from the backend API
             loadRoomSchedule(roomNumber)
-            // TODO: Parse room schedule to use David's schedule
-
-            // Render the room schedule
-            renderSchedule(RAW_SCHEDULE_DATA);
         } else {
             console.error("Search parameter 'room_number' is not set.");
             roomNotFound(roomNumber);
