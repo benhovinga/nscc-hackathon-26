@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 # Module imports
-from .models import Course, CourseSchedule, Room, RoomType
+from .models import Course, CourseSchedule, Room, RoomSchedule, RoomType
 from .database import create_db_and_tables, engine
 
 
@@ -75,18 +75,32 @@ def get_room(room_number: str):
         return room
 
 
-@app.get("/rooms/{room_number}/schedule", response_model=list[CourseSchedule])
+@app.get("/rooms/{room_number}/schedule", response_model=list[RoomSchedule])
 def get_room_schedule(room_number: str):
     with Session(engine) as session:
         # Check room exists
         room = session.exec(select(Room).where(Room.room_number == room_number.upper())).one_or_none()
         if room == None:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
-        # Load schedule
-        schedule = session.exec(
-            select(CourseSchedule).where(CourseSchedule.room == room_number.upper())
+        # Load schedules
+        join = session.exec(
+            select(Course, CourseSchedule).join(CourseSchedule).where(CourseSchedule.room == room.room_number)
         ).all()
-        return schedule
+        result = []
+        # Parse the result
+        for course, schedule in join:
+            result.append(
+                RoomSchedule(
+                    id=schedule.id, # type: ignore
+                    day_of_week=schedule.day_of_Week,
+                    start_time=schedule.start_time,
+                    end_time=schedule.end_time,
+                    course_code=course.code,
+                    course_name=course.name,
+                    course_instructor=course.instructor
+                )
+            )
+        return result
 
 
 @app.get("/courses", response_model=list[Course])
