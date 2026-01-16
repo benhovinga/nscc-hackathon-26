@@ -187,14 +187,16 @@ function main() {
         // We are on the schedule page
         console.debug("DEBUG:", "Page=schedule");
 
-        // TODO: Get the room_number from the URL
+        // Get the room_number from the URL
+        const roomNumber = searchParams.get("room_number");
+        if (roomNumber) {
+            // TODO: Get the room schedule from the backend API
 
-        // TODO: Get the room schedule from the backend API
+            // TODO: Parse room schedule to use David's schedule
 
-        // TODO: Parse room schedule to use David's schedule
-
-        // Render the room schedule
-        renderSchedule(RAW_SCHEDULE_DATA);
+            // Render the room schedule
+            renderSchedule(RAW_SCHEDULE_DATA);
+        }
     }
 }
 
