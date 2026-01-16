@@ -6,18 +6,20 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 
 - Used Copilot to generate `\backend\.gitignore` file for a python project.
 - Used Copilot to help debug IDE issues.
-- Used Copilot to for research (like how you might Google something).
+- Used Copilot for research (like how you might Google something).
 - Used Copilot to generate a Pydantic model called `RoomSchedule` in `/backend/app/models.py`.
 
 
 ## David
 
-- 
+- Used Copilot to write function that renders content from JavaScript to HTML
+- Used Perplexity to create stylized button
+- Used Copilot to debug JavaScript code
 
 
 ## Josh
 
-- Used Copilot to for research (like how you might Google something).
+- Used Copilot for research (like how you might Google something).
 
 
 ## Max
