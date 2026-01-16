@@ -183,7 +183,11 @@ function loadRoomSchedule(roomNumber) {
             // Render the room schedule
             renderSchedule(RAW_SCHEDULE_DATA); // TODO: replace input with parsed data
         })
-        .catch((err) => roomNotFound(roomNumber));
+        .catch((err) => {
+            console.debug("DEBUG", err.message);
+            if (err.message == "Not Found") roomNotFound(roomNumber);    
+            else throw err;
+        });
 }
 
 
