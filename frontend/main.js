@@ -1,10 +1,10 @@
 const API_BASE = "http://127.0.0.1:8000";
 
-const WEEKDAYS = ['monday','tuesday','wednesday','thursday','friday'];
+const WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
 const TIME_SLOTS = [
-    '08:00','09:00','10:00','11:00','12:00',
-    '13:00','14:00','15:00','16:00','17:00',
+    '08:00', '09:00', '10:00', '11:00', '12:00',
+    '13:00', '14:00', '15:00', '16:00', '17:00',
 ];
 
 
@@ -12,7 +12,7 @@ function updateRoomList(rooms) {
     const buildRow = (roomNumber) => {
         // Create new list item
         const li = document.createElement("li");
-        li.classList.add("room-item");
+        li.classList.add("item");
         li.textContent = roomNumber;
 
         // Create new link
@@ -31,7 +31,7 @@ function updateRoomList(rooms) {
     const roomListElem = document.querySelector("#room-list ul");
     // Clear the room list
     roomListElem.innerHTML = "";
-    if (rooms.length > 0){
+    if (rooms.length > 0) {
         // Add each room to the list
         rooms.forEach(room => {
             roomListElem.appendChild(buildRow(room.room_number));
@@ -58,7 +58,6 @@ function loadRoomList(roomType = "", buildingWing = "", buildingFloor = "") {
     fetch(requestURL)
         .then((response) => response.json())
         .then((json) => updateRoomList(json))
-        //.catch((reason) => console.error(reason));
 }
 
 
@@ -86,7 +85,7 @@ function getOffsetHours(time) {
 function formatTime(timeStr) {
     const [hours, minutes] = timeStr.split(':');
     const date = new Date(0, 0, 1, hours, minutes);
-    return date.toLocaleString('en-US', {hour: 'numeric', minute: '2-digit', hour12: true});
+    return date.toLocaleString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 }
 
 
@@ -106,15 +105,15 @@ function renderSchedule(data) {
 
     // TIME COLUMN
     const timeCol = document.createElement('div');
-    timeCol.className = 'time-column';
+    timeCol.className = 'flex time';
     timeCol.ariaHidden = true;
     const timeHeader = document.createElement('div');
-    timeHeader.className = 'day-header';
+    timeHeader.className = 'header';
     timeCol.appendChild(timeHeader);
 
     TIME_SLOTS.forEach(t => {
         const label = document.createElement('div');
-        label.className = 'time-label';
+        label.className = 'label';
         label.textContent = t;
         timeCol.appendChild(label);
     });
@@ -130,10 +129,10 @@ function renderSchedule(data) {
     // DAY COLUMNS
     WEEKDAYS.forEach(day => {
         const dayCol = document.createElement('div');
-        dayCol.className = 'day-column';
+        dayCol.className = 'day';
 
         const header = document.createElement('div');
-        header.className = 'day-header';
+        header.className = 'header';
         header.textContent = toTitleCase(day);
         dayCol.appendChild(header);
 
@@ -141,7 +140,7 @@ function renderSchedule(data) {
 
         TIME_SLOTS.forEach(() => {
             const row = document.createElement('div');
-            row.className = 'hour-row';
+            row.className = 'hour';
             row.ariaHidden = true;
             dayCol.appendChild(row);
         });
@@ -157,29 +156,29 @@ function renderSchedule(data) {
             const duration = getDurationHours(startTime, endTime);
             const offset = getOffsetHours(startTime);
 
-            const codeElem = document.createElement('div');
-            codeElem.classList.add('course-code');
-            codeElem.innerText = courseCode;
-
-            const nameElem = document.createElement('div');
-            nameElem.classList.add('course-name');
-            nameElem.innerText = courseName;
-
-            const instructorElem = document.createElement('div');
-            instructorElem.classList.add('course-instructor');
-            instructorElem.innerText = courseInstructor;
-
-            const timeElem = document.createElement('div');
-            timeElem.classList.add('block-time');
-            timeElem.innerText = `${formatTime(startTime)} – ${formatTime(endTime)}`;
-
             const block = document.createElement('div');
-            block.className = `time-block in-use`;
+            block.className = `flex block`;
             block.style.height = `${duration * 3}rem`;
             block.style.top = `${(offset * 3 * 16 + headerHeight)}px`; // convert rem to px
+
+            const codeElem = document.createElement('div');
+            codeElem.classList.add('code');
+            codeElem.innerText = courseCode;
             block.appendChild(codeElem);
+
+            const nameElem = document.createElement('div');
+            nameElem.classList.add('name');
+            nameElem.innerText = courseName;
             block.appendChild(nameElem);
+
+            const instructorElem = document.createElement('div');
+            instructorElem.classList.add('instructor');
+            instructorElem.innerText = courseInstructor;
             block.appendChild(instructorElem);
+
+            const timeElem = document.createElement('div');
+            timeElem.classList.add('time');
+            timeElem.innerText = `${formatTime(startTime)} – ${formatTime(endTime)}`;
             block.appendChild(timeElem);
 
             dayCol.appendChild(block);
@@ -192,7 +191,6 @@ function renderSchedule(data) {
 
 function roomNotFound(roomNumber = null) {
     const error = document.createElement('div');
-    error.classList.add("error");
     error.innerText = `Invalid room selection. Room ${roomNumber || "{null}"} does not exist.`;
     const main = document.querySelector("main");
     main.innerHTML = "";
@@ -220,7 +218,7 @@ function loadRoomSchedule(roomNumber) {
         })
         .catch((err) => {
             console.debug("DEBUG", err.message);
-            if (err.message == "Not Found") roomNotFound(roomNumber);    
+            if (err.message == "Not Found") roomNotFound(roomNumber);
             else throw err;
         });
 }
