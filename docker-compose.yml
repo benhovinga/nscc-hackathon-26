@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nscc-hackathon-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data:/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: sh -c "python create_db.py && python main.py"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: nscc-hackathon-frontend
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - backend
+
+networks:
+  default:
+    name: nscc-hackathon-network
