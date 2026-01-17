@@ -1,24 +1,5 @@
 # NSCC Hackathon '26: Team Syntax Error Geeks
 
-
-## Frontend
-
-### Start frontend server
-
-```bash
-cd frontend
-python -m http.server 9000
-```
-
-## Backend
-
-### Setup
-
-Requirements:
-
-- Python 3.13+
-
-
 ## Frontend Instructions
 
 ### Start frontend server
