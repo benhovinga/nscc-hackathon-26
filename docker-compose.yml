@@ -14,19 +14,6 @@ services:
     command: sh -c "python create_db.py && exec python main.py"
     stop_grace_period: 3s
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: nscc-hackathon-frontend
-    volumes:
-      - ./frontend:/app
-    environment:
-      - PYTHONUNBUFFERED=1
-    depends_on:
-      - backend
-    stop_grace_period: 3s
-
   nginx:
     image: nginx:alpine
     container_name: nscc-hackathon-nginx
@@ -34,9 +21,9 @@ services:
       - "9000:9000"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./frontend:/usr/share/nginx/html:ro
     depends_on:
       - backend
-      - frontend
     stop_grace_period: 3s
 
 networks:

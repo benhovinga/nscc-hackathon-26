@@ -12,6 +12,7 @@ We have been asked to keep track of how AI was used during the hackathon. We are
 - Used Copilot to generate `toTitleCase()` function in `/frontend/main.js`.
 - Used Claude Haiku 4.5 to generate the `docker-compose.yml`, `/frontend/Dockerfile`, and `/backend/Dockerfile`. With an additional adjustment to `/backend/main.py` to get the service to running properly.
 - Used Claude Haiku 4.5 to generate `nginx.conf` and modify other files to implement a reverse proxy with docker.
+- Used Claude Haiku 4.5 to modify the docker services to use nginx to serve the frontend instead of python.
 
 
 ## David
