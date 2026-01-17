@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
     <title>Room Availability at NSCC IT Campus</title>
+    <link rel="author" href="humans.txt" />
+    <!-- SEO metadata goes here -->
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
+    <a class="screenreader" href="#content">Jump to main content</a>
     <header>
-        <div class="header-box container">
-            <img alt="NSCC Logo" src="./logo.png" id="main-logo">
-            <h1 id="main-title">Room Availability</h1>
+        <div class="flex container">
+            <img alt="Nova Scotia Community College Logo" src="./logo.png" id="main-logo">
+            <h1>Room Availability</h1>
         </div>
     </header>
-    <main class="container">
-        <h2 id="page-title">Room Selector</h2>
 
-        <div class="room-flex">
+    <main class="container" id="content">
+        <div class="title">
+            <h2>Room Selector</h2>
+        </div>
+
+        <div class="flex" id="room-selector">
             <section id="room-filters">
                 <h4>Filters</h4>
                 <a class="screenreader" href="#room-list">Jump to the room list</a>
@@ -52,7 +58,7 @@
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <div class="filter-buttons">
+                    <div class="flex btn-group">
                         <input type="submit" value="Search" />
                         <input id="reset-filters" type="reset" value="Reset" data-goto="./" />
                     </div>
@@ -62,10 +68,10 @@
             <section id="room-list">
                 <h4>Room List</h4>
                 <a class="screenreader" href="#room-filters">Jump to the filters</a>
-                <div class="scrollable-list">
+                <div class="scroll-y">
                     <noscript>Javascript is required to use this app.</noscript>
                     <ul>
-                        <li class="room-not-found">Loading...</li>
+                        <li>Loading...</li>
                     </ul>
                 </div>
             </section>
@@ -76,8 +82,8 @@
         <div class="container">
             <p>This prototype was developed by team <em>"Syntax Error Geeks"</em> for the</p>
             <p><strong>2026 NSCC Hackathon (Jan 9 - Jan 16)</strong></p>
-            <div class="footer-flex">
-                <div class="footer-list">
+            <div class="flex">
+                <div class="menu">
                     <h4>Team members</h4>
                     <ul>
                         <li><a href="https://github.com/benhovinga" target="_blank">@benhovinga</a></li>
@@ -86,7 +92,7 @@
                         <li><a href="https://github.com/TechedWind707" target="_blank">@TechedWind707</a></li>
                     </ul>
                 </div>
-                <div class="footer-list">
+                <div class="menu">
                     <h4>Other Links</h4>
                     <ul>
                         <li><a href="https://github.com/benhovinga/nscc-hackathon-26" target="_blank">GitHub Repository</a></li>

@@ -1,25 +1,15 @@
 :root {
-  --color-background-dark: #004477;
-  --color-primary: #0E1326;
-  --color-primary-hover: #1B5C8C;
-  --color-accent: #CEDC00;
-  --color-text-light: #FFFFFF;
-  --color-border: #ccc;
-  --color-border-light: #eee;
+    --color-background-dark: #004477;
+    --color-primary: #0E1326;
+    --color-primary-hover: #1B5C8C;
+    --color-accent: #CEDC00;
+    --color-text-light: #FFFFFF;
+    --color-border: #ccc;
+    --color-border-light: #eee;
 
-  --font-header: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  --font-body: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-  --container-width: 700px;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
+    --font-header: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-body: Calibri, 'Trebuchet MS', sans-serif;
+    --container-width: 700px;
 }
 
 * {
@@ -29,36 +19,62 @@ body {
     font-family: var(--font-body);
 }
 
-a {
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+a,
+a:visited {
     color: var(--color-primary);
 }
 
-a:hover, a:active, a:visited {
+a:hover,
+a:active {
     color: var(--color-primary-hover);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-header);
     color: var(--color-primary);
 }
 
-h4 {
-    margin-bottom: 0.7rem;
+h1 {
+    font-size: 1.67rem;
 }
 
-button, input[type="submit"], input[type="reset"] {
+h2 {
+    font-size: 1.4rem;
+}
+
+button,
+[type="submit"],
+[type="reset"] {
     min-height: 40px;
     min-width: 40px;
     font-weight: 700;
     background-color: var(--color-background-dark);
     color: var(--color-text-light);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     border-radius: 0.4rem;
     padding: 0.4rem;
 }
 
-button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+button:hover,
+[type="submit"]:hover,
+[type="reset"]:hover {
     background-color: var(--color-primary-hover);
+    border-color: var(--color-accent);
 }
 
 header {
@@ -66,28 +82,65 @@ header {
     padding: 2rem 0.5rem;
 }
 
+.screenreader {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    /* IE 7+ only support clip without commas */
+    clip: rect(1px 1px 1px 1px);
+    /* All other browsers */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
 }
 
-.header-box{
+.flex {
     display: flex;
-    padding-left: 10px;
+}
+
+.flex.btn-group {
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+}
+
+.flex.btn-group * {
+    flex-grow: 1;
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.scroll-x {
+    overflow-x: auto;
+}
+
+/**********/
+/* HEADER */
+/**********/
+
+header .flex {
     flex-flow: row wrap;
     justify-content: space-between;
     gap: 2rem
 }
 
-#main-logo {
+header h1 {
+    color: var(--color-text-light);
+    align-self: flex-end;
+}
+
+header img {
     height: 50px;
 }
 
-#main-title {
-    color: var(--color-text-light);
-    font-size: 1.67rem;
-    align-self: flex-end;
-}
+/********/
+/* MAIN */
+/********/
 
 main {
     padding: 1rem 0;
@@ -95,196 +148,24 @@ main {
     width: 100%;
 }
 
-#page-title {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+main h2 {
+    margin-bottom: 1.6rem;
 }
 
-.room-flex {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 0.5rem;
+main h2 span {
+    font-weight: 900;
 }
 
-#room-list {
-    order: 1;
-    flex-grow: 2;
-    padding: 0;
-    min-width: 250px;
-}
-
-.scrollable-list{
-    height: 300px;
-    overflow-y: auto;
-    border: 1px solid var(--color-border);
-    background-color: var(--color-border-light);
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.scrollable-list ul {
-    flex-grow: 1;
-    list-style-type: none;
-    padding-inline-start: 0;
-    height: fit-content;
-}
-
-.room-item {
-    color: var(--color-primary);
-    background-color: #f5f5f5;
-    padding: 0.5rem;
-    margin: 0.7rem 0;
-    border-left: 7px solid var(--color-accent);
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.room-not-found {
-    color: var(--color-primary);
-    background-color: #f5f5f5;
-    padding: 0.5rem;
-    margin: 0.7rem 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.schedule-link {
-    text-align: right;
-    float: right;
-    padding-left: 1rem;
-}
-
-#room-filters{
-    order: 2;
-    flex-grow: 1;
-    max-width: 200px;
-}
-
-.filter{
-    padding-bottom: 1rem;
-}
-
-.filter label {
-    display: block;
-}
-
-.filter select {
-    width: 100%;
-}
-
-.filter-buttons {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 0.5rem;
-}
-
-.filter-buttons * {
-    flex-grow: 1;
-}
-
-.screenreader {
-    position: absolute !important;
-    height: 1px; width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
-    clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
-}
-
-.page-title-flex {
-    display: flex;
+main .title.flex {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: baseline;
 }
 
-#schedule {
-  display: flex;
-  max-width: 100%;
-  overflow-x: auto;
-  margin-top: 1rem;
-}
+/**********/
+/* FOOTER */
+/**********/
 
-/* Time column */
-.time-column {
-  display: flex;
-  flex-direction: column;
-  min-width: 80px;
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
-}
-
-.time-label {
-  height: 3rem;
-  font-size: 0.9rem;
-  border-bottom: 1px solid var(--color-border);
-  text-align: right;
-  padding-right: 0.5rem;
-}
-
-/* Day columns */
-.day-column {
-  position: relative;
-  flex: 1;
-  min-width: 100px;
-  border-left: 1px solid var(--color-border);
-}
-
-.day-column:last-of-type{
-  border-right: 1px solid var(--color-border);
-}
-
-.day-header {
-  height: 3rem;
-  font-weight: bold;
-  text-align: center;
-  border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-background-dark);
-  color: var(--color-border-light);
-}
-
-.hour-row {
-  height: 3rem;
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-/* Booking blocks */
-.time-block {
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  padding: 0 0.2rem;
-  font-size: 0.8rem;
-  border-radius: 4px;
-}
-
-.in-use {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-.course-code {
-    font-weight: 700;
-}
-
-.course-name {
-    /* Optional selector */
-}
-
-.course-instructor {
-    /* Optional selector */
-}
-
-.block-time {
-    font-size: 0.6rem;
-    font-style: italic;
-}
-
-/* Footer Area */
 footer {
     background-color: var(--color-background-dark);
     color: var(--color-text-light);
@@ -297,34 +178,182 @@ footer {
 
 footer h4 {
     color: var(--color-text-light);
+    /* TODO: Remove margin-bottom */
     margin-bottom: 0;
 }
 
-footer a, footer a:visited {
+footer a,
+footer a:visited {
     color: var(--color-accent);
     text-decoration: none;
 }
 
-footer a:hover, footer a:active {
+footer a:hover,
+footer a:active {
     text-decoration: underline;
     color: var(--color-text-light);
 }
 
-.footer-flex {
-    display: flex;
+footer .flex {
     flex-flow: row wrap;
     justify-content: space-evenly;
     margin-top: 1rem;
 }
 
-.footer-list {
+footer .menu {
     text-align: initial;
 }
 
-.footer-list ul {
+footer .menu ul {
     list-style: none;
 }
 
 footer p:nth-of-type(2) {
     margin-top: 0.7rem;
+}
+
+/*************/
+/* ROOM VIEW */
+/*************/
+
+#room-selector {
+    flex-flow: row wrap;
+    gap: 0.5rem;
+}
+
+#room-selector h4 {
+    margin-bottom: 0.7rem;
+}
+
+#room-filters {
+    order: 2;
+    max-width: 200px;
+}
+
+#room-filters .filter {
+    padding-bottom: 1rem;
+}
+
+#room-filters .filter label {
+    display: block;
+}
+
+#room-filters .filter select {
+    width: 100%;
+}
+
+#room-list {
+    order: 1;
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+#room-list>div {
+    height: 300px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-border-light);
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#room-list ul {
+    flex-grow: 1;
+    list-style-type: none;
+    padding-inline-start: 0;
+    height: fit-content;
+}
+
+#room-list li {
+    color: var(--color-primary);
+    background-color: #f5f5f5;
+    padding: 0.5rem;
+    margin: 0.7rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#room-list li.item {
+    border-left: 7px solid var(--color-accent);
+}
+
+#room-list li.item a {
+    text-align: right;
+    float: right;
+    padding-left: 1rem;
+}
+
+/*****************/
+/* SCHEDULE VIEW */
+/*****************/
+
+#schedule .header {
+    height: 3rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-background-dark);
+    color: var(--color-border-light);
+}
+
+#schedule>.time {
+    flex-direction: column;
+    min-width: 80px;
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+}
+
+#schedule>.time .label {
+    height: 3rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+    text-align: right;
+    padding-right: 0.5rem;
+}
+
+#schedule .day {
+    position: relative;
+    flex: 1;
+    min-width: 100px;
+    border-left: 1px solid var(--color-border);
+}
+
+#schedule .day:last-of-type {
+    border-right: 1px solid var(--color-border);
+}
+
+#schedule .day .hour {
+    height: 3rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+#schedule .day .block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    flex-flow: column;
+    justify-content: space-around;
+    padding: 0 0.2rem;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+#schedule .day .block .code {
+    font-weight: 700;
+}
+
+#schedule .day .block .name {
+    /* Optional selector */
+}
+
+#schedule .day .block .instructor {
+    /* Optional selector */
+}
+
+#schedule .block .time {
+    font-size: 0.6rem;
+    font-style: italic;
 }
