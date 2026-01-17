@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "/api";
 
 const WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
@@ -48,7 +48,7 @@ function updateRoomList(rooms) {
 
 function loadRoomList(roomType = "", buildingWing = "", buildingFloor = "") {
     // Build the request url with query parameters
-    const requestURL = new URL(API_BASE + "/rooms");
+    const requestURL = new URL(API_BASE + "/rooms", window.location.origin);
     if (roomType) requestURL.searchParams.set("room_type", roomType);
     if (buildingWing) requestURL.searchParams.set("building_wing", buildingWing);
     if (buildingFloor) requestURL.searchParams.set("building_floor", buildingFloor);
@@ -199,7 +199,7 @@ function roomNotFound(roomNumber = null) {
 
 
 function loadRoomSchedule(roomNumber) {
-    const requestURL = new URL(`${API_BASE}/rooms/${roomNumber}/schedule`);
+    const requestURL = new URL(`${API_BASE}/rooms/${roomNumber}/schedule`, window.location.origin);
     console.debug("DEBUG:", "Request URL", requestURL);
 
     fetch(requestURL)

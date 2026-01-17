@@ -6,30 +6,38 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: nscc-hackathon-backend
-    ports:
-      - "8000:8000"
     volumes:
       - ./backend:/app
       - ./data:/data
     environment:
       - PYTHONUNBUFFERED=1
-    command: sh -c "python create_db.py && python main.py"
-    stop_grace_period: 2s
+    command: sh -c "python create_db.py && exec python main.py"
+    stop_grace_period: 3s
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: nscc-hackathon-frontend
-    ports:
-      - "9000:9000"
     volumes:
       - ./frontend:/app
     environment:
       - PYTHONUNBUFFERED=1
     depends_on:
       - backend
-    stop_grace_period: 2s
+    stop_grace_period: 3s
+
+  nginx:
+    image: nginx:alpine
+    container_name: nscc-hackathon-nginx
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    stop_grace_period: 3s
 
 networks:
   default:
