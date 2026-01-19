@@ -1,83 +1,43 @@
 # NSCC Hackathon '26: Team Syntax Error Geeks
 
-## Frontend Instructions
+## Getting started
 
-### Start frontend server
+**Requirements**
 
-```pwsh
-cd frontend
-python -m http.server 9000
-```
-
-Now you can open the frontend website at http://localhost:9000/
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 
-## Backend Instructions
+**Starting up**
 
-### Setup Backend
-
-#### 1. Create a Python virtual environment
+Ensure docker desktop is running. In the root of the repository run this command:
 
 ```pwsh
-cd backend
-python -m venv .venv
+docker compose up
 ```
 
-> Learn more about the [Python virtual environment](https://www.w3schools.com/python/python_virtualenv.asp)
+Starting the docker compose will build the database and start all of the services required to run the app.
 
-#### 2. Activate the virtual environment
+The app features are available at:
 
-Linux, MacOS
+- Frontend: http://localhost:9000/
+- Backend: http://localhost:9000/api/
+- Backend docs: http://localhost:9000/api/docs
 
-```bash
-source .venv/bin/activate
-```
 
-Windows PowerShell
+**Stopping**
+
+Press `Ctrl + C`
+
+
+**Starting up (detached)**
 
 ```pwsh
-.venv\Scripts\Activate.ps1
+docker compose up -d
 ```
 
-#### 3. Upgrade `pip`
+
+**Stopping (detached)**
 
 ```pwsh
-python -m pip install --upgrade pip
+docker compose down
 ```
-
-#### 4. Install project dependencies
-
-```pwsh
-pip install -r requirements.txt
-```
-
-#### 5. Build the local database
-
-```pwsh
-python create_db.py
-```
-
-> Note: This creates a local SQLite database file `database.db`. This file is not committed to the repository.
-
-> Warning: If you ever have a database conflict, delete your local `database.db` file and re-run the above command.
-
-### Start backend server
-
-> Note: Make sure you are in the `backend` directory before running any commands.
-> ```pwsh
-> cd backend
-> ```
-
-#### 1. Activate the Python virtual environment
-
-If you closed your terminal or are coming back another day, you will need to reactivate the virtual environment. **Follow step 2 of the setup section** to activate the virtual environment again.
-
-#### 2. Start the backend server
-
-```pwsh
-python main.py
-```
-
-You can now access the backend server locally at http://127.0.0.1:8000/
-
-FastAPI includes two API documentation tools and they can be accessed at http://127.0.0.1:8000/docs/ and http://127.0.0.1:8000/redocs/. Use which ever one you like best.
