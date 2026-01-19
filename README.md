@@ -21,7 +21,6 @@ The app features are available at:
 
 - Frontend: http://localhost:9000/
 - Backend: http://localhost:9000/api/
-- Backend docs: http://localhost:9000/api/docs
 
 
 **Stopping**
